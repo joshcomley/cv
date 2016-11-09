@@ -1,0 +1,11 @@
+.experience{
+    padding-bottom: 2em;
+}
+.skill-tag{
+    background-color: #EEE;
+    display: inline-block;
+    border: 1px solid #DDD;
+    padding: 3px;
+    margin-right: 5px;
+    margin-top: 5px;
+}

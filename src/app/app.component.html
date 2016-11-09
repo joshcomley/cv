@@ -87,7 +87,7 @@
 		<div class="top-skills">
 			<h3 class="subtitle">Top Skills</h3>
 			<div class="row">
-				<app-skill *ngFor="let skill of skills | importantSkills:true" [skill]="skill">
+				<app-skill *ngFor="let skill of skills | importantSkills:true | orderByExperience" [skill]="skill">
 
 				</app-skill>
 			</div>

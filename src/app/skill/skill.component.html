@@ -1,13 +1,14 @@
 <div class="item col-xs-12 col-sm-4">
 	<div class="item-inner">
 		<div class="chart-easy-pie text-center">
-			<div class="chart-theme-1 chart" [attr.data-percent]="skill.percent"><span>{{skill.percent}}</span>%</div>
+			<div class="chart-theme-1 chart" [attr.data-percent]="resolveScore()"><span>{{resolveScore()}}</span>%</div>
 		</div>
 		<h4 class="skill-name">{{skill.title}}</h4>
-		<div class="level">{{skill.level}}, {{skill.years}}</div> 
+		<!--
+		<div class="level">{{skill.level}}, {{skill.years}} year{{skill.years == 1 ? "" : "s"}}</div> 
 		<div class="desc">
-      {{skill.description}}
-		</div>
+      		{{skill.description}} - {{skill.months}}
+		</div>-->
 	</div>
 	<!--//item-inner-->
 </div>

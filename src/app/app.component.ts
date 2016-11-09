@@ -37,11 +37,13 @@ export class AppComponent {
 <p>In addition I have developed a scalable Azure based ASP.NET and AngularJS web application with Web API backend and accompanying phone applications for mobile*.</p>
 <p><i>* iOS, Android and Windows Phone</i></p>`;
 
-    this.current = "I am free";
+    this.current = "";
 
     this.experiences.push(
       new Experience(
         ExperienceType.SelfEmployed,
+        12,
+        2015,
         "Self-employed (Brandless Limited)",
         "Developing a suite of portable technologies and applications for my own business.",
         "Berlin, Germany and Worcestershire, UK",
@@ -56,11 +58,13 @@ export class AppComponent {
 <li>Portable C#.NET based audio playback, recording, streaming, decoding and effects library for Windows, Windows Phone, iOS and Android</li>
 <li>A C# to C# serializer (it’s more useful than it sounds!)</li>
 </ul>`,
-        ["AngularJS", "Code First", "MVC5", "Entity Framework 6", "BDD", "TDD", "SOLID", "REST", "Bootstrap", "Xamarin", " Mobile", "AngularJS", "C# 4.0", "ASP.NET", "SQL Server", "XHTML", "CSS", "JavaScript", "AJAX", "jQuery", "LINQ"]));
+        ["C#", ".NET", "AngularJS", "Code First", "MVC5", "Entity Framework 6", "BDD", "TDD", "SOLID", "REST", "Bootstrap", "Xamarin", " Mobile", "C# 4.0", "ASP.NET", "SQL Server", "XHTML", "CSS", "JavaScript", "AJAX", "jQuery", "LINQ"]));
 
     this.experiences.push(
       new Experience(
         ExperienceType.Contract,
+        6,
+        2013,
         "Sciensus Ltd.",
         "Developer and lead developer on software primarily used in hospitals to aid disease analysis.",
         "Brighton, UK",
@@ -69,12 +73,14 @@ export class AppComponent {
         `<p>My work at Sciensus ranged from rapid creation of a fully customised call centre web application to ensure swift and accurate recall of faulty medical equipment, to a web based disease tracking system for Hepatitis.</p>
 <p>Good UX, high security and data anonymity were all essential when building these applications as they were to be used in high pressure, security critical environments.</p>
 <p>I introduced the team to a number of principles including DRY, agile and a collection of newer technologies such as Bootstrap.</p>`,
-        ["Agile", "BDD", "TDD", "SOLID", "REST", "Team Training", "MVC 4/3", "Bootstrap", "C# 4.0", "ASP.NET", "Client Facing", "SQL Server", "XHTML", "CSS", "JavaScript", "AJAX", "jQuery", "LINQ"],
+        ["C#", ".NET", "Agile", "BDD", "TDD", "SOLID", "REST", "Team Training", "MVC 4/3", "Bootstrap", "C# 4.0", "ASP.NET", "Client Facing", "SQL Server", "XHTML", "CSS", "JavaScript", "AJAX", "jQuery", "LINQ"],
         new ExperienceReference("Kim Whaling", "+44 (0) 333 103 9780", "Sciensus, First floor office, Chelsea House, 8-14 The Broadway, Haywards Heath, RH16 3AH")));
 
     this.experiences.push(
       new Experience(
         ExperienceType.Permanent,
+        37,
+        2013,
         "Freedman International Ltd. / Kaboodle",
         "Developer and lead developer on software primarily used in hospitals to aid disease analysis.",
         "London, UK",
@@ -86,12 +92,14 @@ export class AppComponent {
 <p>My role was to work as technical lead for the team of 5 developers and architect on the project from start to finish. The front end to the application was built in MVC 4. This included managing and training team members in Ukraine.</p>
 <p>The only decision beyond my control was the employment of SharePoint 2010 as a backend for the data, however all SharePoint access was abstracted away via an OData driven RESTful WCF service authenticated using OAuth – in other words we created a full, public (secured) REST API for the application. SharePoint is completely dynamic; the customer can change their experience very easily, adding columns to existing “tables”, even new “tables” of data and so on. The API had to reflect this live, delivering different data and metadata whilst the web application had to be robust enough to survive such changes in its underlying schema without requiring a reboot.</p>
 <p>This particular project was one of the most challenging yet of my career due to an incredible number of hidden complexities and limitations within the underlying key technologies when dealing with completely dynamic data feeds. It has also given me excellent experience leading and managing a team of developers.</p>`,
-        ["Agile", "BDD", "TDD", "SOLID", "REST", "Team Training", "OAuth", "OpenId", "MVC 4/3", "C# 4.0", "C# 3.5", " ASP.NET", "Client Facing", "SharePoint 2010", "Continuous Integration", "SQL Server", "XHTML", "CSS", "JavaScript", "AJAX", "jQuery", "WinForms", "WebForms", "Technical Writing", "LINQ"],
+        ["C#", ".NET", "Agile", "BDD", "TDD", "SOLID", "REST", "Team Training", "OAuth", "OpenId", "MVC 4/3", "C# 4.0", "C# 3.5", " ASP.NET", "Client Facing", "SharePoint 2010", "Continuous Integration", "SQL Server", "XHTML", "CSS", "JavaScript", "AJAX", "jQuery", "WinForms", "WebForms", "Technical Writing", "LINQ"],
         new ExperienceReference("Dave Ashenhurst", "+447966582174", "India House, 45 Curlew Street, London SE1 2ND, United Kingdom")));
 
     this.experiences.push(
       new Experience(
         ExperienceType.Permanent,
+        33,
+        2010,
         "Paxton Access Ltd.",
         "Built a variety of internal management web applications whilst maintaining existing website.",
         "London, UK",
@@ -100,24 +108,28 @@ export class AppComponent {
         `<p>My work here has involved the lead development of over 50 web applications using ASP.NET and SQL Server, and over the last year ASP.NET MVC with jQuery.</p>
 <p>Another key project includes the development of on an online system for controlling and reporting on remote security systems – opening doors, reporting on who is in a building etc.</p>
 <p>Many examples of work can be given from time at this company; from web based complicated mathematical business projections and visualisations, complete task management tools and a custom blog to detailed sales history applications and an internal knowledge base. Work here is pushed out at a high standard and includes the design of all applications to very tight deadlines, through a mixture of agile and classic development structures. Once published, applications are often immediately used by up to 2500 people.</p>`,
-        ["C# 3.5", "ASP.NET", "SQL Server", "HTML", "XHTML", "CSS", "JavaScript", "AJAX", "jQuery", "MVC", "ASP", "ASP.NET", "WinForms", "WebForms", "Technical Writing", "Unit Testing", "Silverlight", "LINQ"],
+        ["C#", ".NET", "C# 3.5", "ASP.NET", "SQL Server", "HTML", "XHTML", "CSS", "JavaScript", "AJAX", "jQuery", "MVC", "ASP", "ASP.NET", "WinForms", "WebForms", "Technical Writing", "Unit Testing", "Silverlight", "LINQ"],
         new ExperienceReference("Adam Stroud", "+441273 811011", "Paxton House, Home Farm Road, Brighton, BN1 9HU")));
 
     this.experiences.push(
       new Experience(
         ExperienceType.Contract,
+        8,
+        2008,
         "Fit Systems Limited",
         "Built a holiday website with custom build CMS.",
         "Brighton, UK",
         "Developer and architect",
         "April 2008 – December 2008",
         `<p>Development and client facing role – helped design and entirely developed the holiday websites found at http://www.purezanzibar.com and http://www.puremozambique.com. Please note these websites have since been modified and do not represent my original work! These websites both run from a common code-base and more “themed” websites can be created from the comprehensive CMS at a later date.</p>`,
-        ["C# 3.5", ".NET", "SQL Server", "HTML", "XHTML", "CSS", "JavaScript", "AJAX", "Client Facing", "WebForms", "LINQ"],
+        ["C#", ".NET", "C# 3.5", "SQL Server", "HTML", "XHTML", "CSS", "JavaScript", "AJAX", "Client Facing", "WebForms", "LINQ"],
         new ExperienceReference("Ragnar Barnsby", "0845 603 79 26", "FITSystems Ltd, 16 Seville Street, Brighton, East Sussex, BN2 3AR")));
 
     this.experiences.push(
       new Experience(
         ExperienceType.Contract,
+        8,
+        2008,
         "Riot Creative Limited",
         "Developed a pub/very-mini-social website and associated CMS (Content Management System)",
         "Brighton, UK",
@@ -126,24 +138,28 @@ export class AppComponent {
         `<p>Although this is no longer live due to the client not paying Riot Creative Limited, it can still be found at the test site: http://themontague.stage.riotcreative.co.uk/</p>
 <p>This project had a two week deadline to build a pub website with a slight social aspect along with an associated CMS to manage the various pages on the site. CMS can be demonstrated.</p>
 <p>I also both helped design and entirely built the company website (http://www.riotcreative.co.uk). The site is XHTML 1.1 compliant and works 100% in all the major browsers (IE6, IE7, IE8, Chrome, Firefox 2, Firefox 3, Flock, Opera and Safari).</p>`,
-        ["C# 3.5", ".NET", "SQL Server", "HTML", "XHTML", "CSS", "JavaScript", "AJAX", "Client Facing", "WebForms", "LINQ"],
+        ["C#", ".NET", "C# 3.5", "SQL Server", "HTML", "XHTML", "CSS", "JavaScript", "AJAX", "Client Facing", "WebForms", "LINQ"],
         new ExperienceReference("Victoria Boarer", "+447789540894", "Riot Creative Limited, 40 Clarendon Villas, Hove. BN3 3RA")));
 
     this.experiences.push(
       new Experience(
         ExperienceType.Permanent,
+        14,
+        2007,
         "Cubeworks Limited",
         "Build database driven web applications in ASP.NET using C# and SQL Server",
         "Brighton, UK",
         "Developer and architect",
         "March 2006 - June 2007",
         `<p>Working in an agile manner with project managers, later on as a team leader. The core of my work here has been ASP.NET web development with SQL Server, although included development of a few win forms C#.NET applications. Work was also heavily client facing, being involved in all aspects from pitching work to clients to negotiating through projects.</p>`,
-        ["C# 3.5", ".NET", "SQL Server", "HTML", "XHTML", "CSS", "JavaScript", "AJAX", "Client Facing", "WebForms", "LINQ"],
+        ["C#", ".NET", "SQL Server", "C# 3.5", "HTML", "XHTML", "CSS", "JavaScript", "AJAX", "Client Facing", "WebForms", "LINQ"],
         new ExperienceReference("Alex Cowell", "+441273 733373", "Cubeworks Ltd., 18 Marine Parade, Brighton. BN2 1TL")));
 
     this.experiences.push(
       new Experience(
         ExperienceType.Contract,
+        4,
+        2006,
         "Tracalert Limited",
         "Build a customer management system in ASP.NET and SQL Server for call centre",
         "Brighton, UK",
@@ -156,6 +172,8 @@ export class AppComponent {
     this.experiences.push(
       new Experience(
         ExperienceType.Permanent,
+        9,
+        2006,
         "Dealogic",
         "Design and build tools to help maintain finance customers' accounts",
         "London, UK",
@@ -168,6 +186,8 @@ export class AppComponent {
     this.experiences.push(
       new Experience(
         ExperienceType.Permanent,
+        3,
+        2003,
         "East Sussex County Council",
         "Provide technical support and assistance for all council staff",
         "Lewes, UK",
@@ -180,18 +200,35 @@ export class AppComponent {
     this.educations.push(
       new Experience(
         ExperienceType.Education,
+        36,
+        2005,
         "Sussex University",
         "",
         "Brighton, UK",
-        "Computer Science and AI",
+        "Computer Science and Artificial Intelligence",
         "2002 - 2005",
         `<h2>Focus</h2>
 <p>Java, C++, Haskell, Matlab</p>
 <h2>Dissertation</h2>
 <p>An embedded C application to control media computers via Bluetooth on Symbian based smart phones.</p>`));
 
-    this.skills.push(new Skill("C#", 98, "Expert", "11", "I am good"));
-    this.skills.push(new Skill("PHP", 10));
+    let skillMap = {};
+    for (let experience of this.experiences) {
+      for (let skillName of experience.skills) {
+        if (!skillMap[skillName]) {
+          skillMap[skillName] = new Skill(skillName, 0);
+          this.skills.push(skillMap[skillName]);
+        }
+        let skill = skillMap[skillName] as Skill;
+        skill.months += experience.durationInMonths;
+        skill.description = skillName;
+        if (skill.mostRecentYear < experience.endYear) {
+          skill.mostRecentYear = experience.endYear;
+        }
+      }
+    }
+    //this.skills.push(new Skill("C#", ".NET", 98, "Expert", "11", "I am good"));
+    //this.skills.push(new Skill("PHP", 10));
 
     this.helps.push("Front-end development with AngularJS");
 
@@ -219,5 +256,27 @@ export class ImportantSkillsPipe implements PipeTransform {
   transform(items: Skill[], args: boolean): any {
     // filter items array, items which match and return true will be kept, false will be filtered out
     return items.filter(item => args ? item.description : !item.description);
+  }
+}
+
+@Pipe({
+  name: "orderByExperience"
+})
+export class OrderByExperiencePipe {
+  transform(array: Array<Skill>, args: string): Array<Skill> {
+    array.sort((a: Skill, b: Skill) => {
+      if (a.months < b.months) {
+        return 1;
+      } else if (a.months > b.months) {
+        return -1;
+      }
+      if (a.mostRecentYear < b.mostRecentYear) {
+        return 1;
+      } else if (a.mostRecentYear > b.mostRecentYear) {
+        return -1;
+      }
+        return 0;
+    });
+    return array;
   }
 }

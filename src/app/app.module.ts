@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
-import { AppComponent, ImportantSkillsPipe } from './app.component';
+import { AppComponent, ImportantSkillsPipe, OrderByExperiencePipe } from './app.component';
 import { WorkExperienceComponent } from './work-experience/work-experience.component';
 import { EducationComponent } from './education/education.component';
 import { SkillComponent } from './skill/skill.component';
@@ -20,6 +20,7 @@ import { ProfileImageComponent } from './profile-image/profile-image.component';
     SkillComponent,
     TestimonialComponent,
     ImportantSkillsPipe,
+    OrderByExperiencePipe,
     PortfolioItemComponent,
     SocialsComponent,
     ProfileImageComponent
