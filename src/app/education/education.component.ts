@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Experience } from  "../shared";
+import { Experience } from "../shared";
 
 @Component({
   selector: 'app-education',
@@ -12,5 +12,4 @@ export class EducationComponent implements OnInit {
 
   ngOnInit() {
   }
-
 }

@@ -8,19 +8,51 @@ export class Social {
     }
 }
 
+export class ExperienceReference {
+    name: string;
+    phone: string;
+    address: string;
+
+    constructor(name: string, phone: string, address: string) {
+        this.name = name;
+        this.phone = phone;
+        this.address = address;
+    }
+}
+
+export enum ExperienceType {
+    Education = 1,
+    Contract = 2,
+    Permanent = 3,
+    SelfEmployed = 4
+}
+
 export class Experience {
     place: string;
+    summary: string;
     location: string;
     title: string;
     fromTo: string;
     description: string;
+    skills: Array<string>;
+    reference: Reference;
+    type: ExperienceType;
 
-    constructor(place: string, location: string, title: string, fromTo: string, description: string) {
+    constructor(type: ExperienceType, place: string, summary: string, location: string, title: string, fromTo: string, description: string,
+        skills?: Array<string>,
+        reference?: Reference) {
+        this.type = type;
         this.place = place;
+        this.summary = summary;
         this.location = location;
         this.title = title;
         this.fromTo = fromTo;
         this.description = description;
+        if (!this.skills) {
+            this.skills = new Array<string>();
+        } else {
+            this.skills = skills;
+        }
     }
 }
 
