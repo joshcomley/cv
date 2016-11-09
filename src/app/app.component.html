@@ -185,7 +185,7 @@
 </footer>
 
 <!-- *****CONFIGURE STYLE (REMOVE ON YOUR PRODUCTION SITE)****** -->
-<div *ngIf="false" id="config-panel" class="config-panel hidden-xs hidden-sm">
+<div *ngIf="isLocalhost()" id="config-panel" class="config-panel hidden-xs hidden-sm">
 	<div class="panel-inner">
 		<a id="config-trigger" class="config-trigger config-panel-hide" href="#"><i class="fa fa-cog"></i></a>
 		<h5 class="panel-title">Choose Colour</h5>

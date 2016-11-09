@@ -15,7 +15,7 @@ export class AppComponent {
   portfolioSite = "cv.joshcomley.com";
   profile = "I am a developer";
   current = "I am free";
-  profileImage  = "assets/images/profile-image.jpg";
+  profileImage = "assets/images/profile-image.jpg";
   experiences = new Array<Experience>();
   educations = new Array<Experience>();
   skills = new Array<Skill>();
@@ -40,6 +40,10 @@ export class AppComponent {
     //this.testimonial(new Testimonial())
   }
 
+  isLocalhost(): boolean {
+    return window.location.href.indexOf("http://localhost:4200/") !== -1;
+  }
+  
   phoneNumber(number): string {
     return "tel: " + number.split(" ").join("");
   }
