@@ -7,6 +7,7 @@ import { AppComponent, ImportantSkillsPipe, OrderByExperiencePipe } from './app.
 import { WorkExperienceComponent } from './work-experience/work-experience.component';
 import { EducationComponent } from './education/education.component';
 import { SkillComponent } from './skill/skill.component';
+import { KeySkillsComponent } from './key-skills/key-skills.component';
 import { TestimonialComponent } from './testimonial/testimonial.component';
 import { PortfolioItemComponent } from './portfolio-item/portfolio-item.component';
 import { SocialsComponent } from './socials/socials.component';
@@ -18,6 +19,7 @@ import { ProfileImageComponent } from './profile-image/profile-image.component';
     WorkExperienceComponent,
     EducationComponent,
     SkillComponent,
+    KeySkillsComponent,
     TestimonialComponent,
     ImportantSkillsPipe,
     OrderByExperiencePipe,

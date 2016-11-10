@@ -17,6 +17,8 @@
 			<div class="title">{{title}}</div>
 			<div class="profile">
 				<div [innerHTML]="profile"></div>
+				<h3>Key skills include:</h3>
+				<app-key-skills [skills]="keySkills"></app-key-skills>
 			</div>
 			<!--//profile-->
 		</div>
@@ -82,7 +84,7 @@
 	<!--//section-->
 
 
-	<section *ngIf="skills.length" id="skills-section" class="skills-section section text-center">
+	<section *ngIf="false && skills.length" id="skills-section" class="skills-section section text-center">
 		<h2 class="section-title">Professional Skills</h2>
 		<div class="top-skills">
 			<h3 class="subtitle">Top Skills</h3>

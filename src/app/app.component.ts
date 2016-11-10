@@ -22,6 +22,7 @@ export class AppComponent {
   portfolioItems = new Array<PortfolioItem>();
   helps = new Array<string>();
   socials = new Array<Social>();
+  keySkills = new Array<Skill>();
 
   constructor() {
     this.title = "Full stack developer and architect";
@@ -31,13 +32,67 @@ export class AppComponent {
     this.whatsApp = "+491781 413829";
     this.portfolioSite = "cv.joshcomley.com";
 
-    this.profile = `<p>I am a C# technical architect from the UK with ten years’ experience in .NET and now living in Berlin.</p>
-<p>Key skills include C#, ASP.NET, MVC, Unit Testing, CSS, XHTML, Javascript, AngularJS, jQuery, SQL, Xamarin and Azure.</p>
-<p>I have spent the last year building up a suite of cross-platform portable image and audio technologies for use on desktop, mobile* and in the cloud due for launch later this year.</p>
-<p>In addition I have developed a scalable Azure based ASP.NET and AngularJS web application with Web API backend and accompanying phone applications for mobile*.</p>
-<p><i>* iOS, Android and Windows Phone</i></p>`;
-
+    this.profile = `<p>I am a C# and SQL Server technical architect from the UK with eleven years’ experience in .NET.</p>`;
+//<p>I have spent the last year building up a suite of cross-platform portable image and audio technologies for use on desktop, mobile* and in the cloud due for launch later this year.</p>
+//<p>In addition I have developed a scalable Azure based ASP.NET and AngularJS web application with Web API backend and accompanying phone applications for mobile*.</p>
+//<p><i>* iOS, Android and Windows Phone</i></p>`;
     this.current = "";
+
+    this.experiences.push(
+      new Experience(
+        ExperienceType.Contract,
+        2,
+        2016,
+        "Mount Anvil Limited",
+        "SharePoint Online based web application for managing internal training courses.",
+        "Worcestershire, UK",
+        "Developer and architect",
+        "October 2016 - November 2016",
+        `<p>Work includes:</p>
+        <ul>
+<li>An Angular2 based, HTML5 web application</li>
+<li>Full integration with SharePoint Online and Active Directory</li>
+<li>Programmatically importing and rationalising existing spreadsheet based complex dataset</li>
+</ul>`,
+        ["C#", ".NET", "SharePoint Online", "Graph API", "Active Directory", ".NET Core", "Angular2", "Azure", "SOLID", "Bootstrap", "Mobile", "XHTML", "CSS", "JavaScript", "AJAX", "jQuery", "LINQ"]));
+
+    this.experiences.push(
+      new Experience(
+        ExperienceType.Contract,
+        9,
+        2016,
+        "Hazception Limited",
+        "Developed a web application for creating, editing and taking video based hazard awareness examinations.",
+        "Berlin, Germany and Worcestershire, UK",
+        "Developer and architect",
+        "December 2015 - August 2016",
+        `<p>Work includes:</p>
+        <ul>
+<li>An AngularJS based, HTML5 web application</li>
+<li>Web API, .NET Core based backend for above web site using Entity Framework Core, Code First and SQL Server</li>
+</ul>`,
+        ["C#", ".NET", ".NET Core", "Angular2", "AngularJS", "Azure", "Code First", "MVC5", "Entity Framework Core", "BDD", "TDD", "SOLID", "REST", "Bootstrap", "Xamarin", " Mobile", "C# 4.0", "ASP.NET", "SQL Server", "XHTML", "CSS", "JavaScript", "AJAX", "jQuery", "LINQ"]));
+
+    this.experiences.push(
+      new Experience(
+        ExperienceType.SelfEmployed,
+        12,
+        2015,
+        "Self-employed (Brandless Limited)",
+        "As part of .NET Core development, porting and creating world-first .NET Core libraries.",
+        "Berlin, Germany and Worcestershire, UK",
+        "Developer and architect",
+        "2016",
+        `<p>Work includes:</p>
+        <ul>
+        <li>Implementation of custom and comprehensive SQL Server based security later in Microsoft's Entity Framework Core</li>
+        <li>Bug fixes submitted for Microsoft's Entity Framework Core</li>
+<li>.NET Core port of Microsoft's .NET OData implementation</li>
+<li>.NET Core port of SendGrid mailing API</li>
+<li>.NET Core port of Microsoft's System.Net.Mail (SMTP implementation)</li>
+<li>.NET Core port of Google's HTML Compressor</li>
+</ul>`,
+        ["C#", ".NET Core", "SQL Server", "Entity Framework Core"]));
 
     this.experiences.push(
       new Experience(
@@ -58,7 +113,7 @@ export class AppComponent {
 <li>Portable C#.NET based audio playback, recording, streaming, decoding and effects library for Windows, Windows Phone, iOS and Android</li>
 <li>A C# to C# serializer (it’s more useful than it sounds!)</li>
 </ul>`,
-        ["C#", ".NET", "AngularJS", "Code First", "MVC5", "Entity Framework 6", "BDD", "TDD", "SOLID", "REST", "Bootstrap", "Xamarin", " Mobile", "C# 4.0", "ASP.NET", "SQL Server", "XHTML", "CSS", "JavaScript", "AJAX", "jQuery", "LINQ"]));
+        ["C#", ".NET", "Angular2", "AngularJS", "Azure", "Code First", "MVC5", "Entity Framework 6", "BDD", "TDD", "SOLID", "REST", "Bootstrap", "Xamarin", " Mobile", "C# 4.0", "ASP.NET", "SQL Server", "XHTML", "CSS", "JavaScript", "AJAX", "jQuery", "LINQ"]));
 
     this.experiences.push(
       new Experience(
@@ -227,16 +282,27 @@ export class AppComponent {
         }
       }
     }
+    this.keySkills.push(skillMap["C#"]);
+    this.keySkills.push(skillMap["SQL Server"]);
+    this.keySkills.push(skillMap[".NET"]);
+    this.keySkills.push(skillMap["AngularJS"]);
+    this.keySkills.push(skillMap["Angular2"]);
+    this.keySkills.push(skillMap["JavaScript"]);
+    this.keySkills.push(skillMap["Azure"]);
+    //<p>Key skills include <b>C#, ASP.NET, MVC, Unit Testing, CSS, XHTML, Javascript, AngularJS, jQuery, SQL, Xamarin and Azure</b>.</p>
+
     //this.skills.push(new Skill("C#", ".NET", 98, "Expert", "11", "I am good"));
     //this.skills.push(new Skill("PHP", 10));
 
-    this.helps.push("Front-end development with AngularJS");
+    this.helps.push("C# and .NET development and architecture");
+    this.helps.push("SQL Server design and development");
+    this.helps.push("Web development with Angular2, AngularJS or ASP.NET MVC");
 
-    this.socials.push(new Social("", "fa fa-linkedin"));
-    this.socials.push(new Social("", "fa fa-twitter"));
-    this.socials.push(new Social("", "fa fa-google-plus"));
-    this.socials.push(new Social("", "fa fa-github-alt"));
-    this.socials.push(new Social("", "fa fa-skype"));
+    this.socials.push(new Social("https://uk.linkedin.com/in/joshcomley", "fa fa-linkedin"));
+    this.socials.push(new Social("https://twitter.com/joshcomley", "fa fa-twitter"));
+    this.socials.push(new Social("https://plus.google.com/+JoshComley", "fa fa-google-plus"));
+    this.socials.push(new Social("https://github.com/joshcomley", "fa fa-github-alt"));
+    //this.socials.push(new Social("", "fa fa-skype"));
   }
 
   isLocalhost(): boolean {
