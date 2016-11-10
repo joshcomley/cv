@@ -68,7 +68,7 @@ export class AppComponent {
         "December 2015 - August 2016",
         `<p>Work includes:</p>
         <ul>
-<li>An AngularJS based, HTML5 web application</li>
+<li>An .NET Core and SQL Server web application with an AngularJS and HTML5 front-end web application</li>
 <li>Web API, .NET Core based backend for above web site using Entity Framework Core, Code First and SQL Server</li>
 </ul>`,
         ["C#", ".NET", ".NET Core", "Angular2", "AngularJS", "Azure", "Code First", "MVC5", "Entity Framework Core", "BDD", "TDD", "SOLID", "REST", "Bootstrap", "Xamarin", " Mobile", "C# 4.0", "ASP.NET", "SQL Server", "XHTML", "CSS", "JavaScript", "AJAX", "jQuery", "LINQ"]));
