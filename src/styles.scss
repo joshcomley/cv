@@ -1,0 +1,104 @@
+@import "~@fortawesome/fontawesome-free/css/fontawesome.css";
+@import "~@fortawesome/fontawesome-free/css/solid.css";
+@import "~@fortawesome/fontawesome-free/css/regular.css";
+@import "~@fortawesome/fontawesome-free/css/brands.css";
+@import "~@angular/material/theming";
+@import "./utils";
+@import "./md";
+
+/* You can add global styles to this file, and also import other style files */
+html {
+  font-family: sans-serif;
+  background-color: background-color();
+}
+
+body {
+  max-width: 1024px;
+  margin: 0 auto;
+}
+
+$print-body-margin: 20px;
+@media print {
+  body {
+    margin-left: $print-body-margin;
+    margin-right: $print-body-margin;
+  }
+  @page {
+    margin-top: 20mm;
+    background-color: red;
+  }
+  .page-nav-space-holder {
+    display: none;
+  }
+  mat-card,
+  h2 {
+    padding-top: 10mm !important;
+  }
+  #contact-section,
+  mat-card {
+    page-break-inside: avoid;
+  }
+  .page-break {
+    page-break-before: always;
+  }
+}
+
+h1.name {
+  justify-self: center;
+}
+
+a {
+  color: accent-color();
+  text-decoration: none;
+}
+
+i,
+mat-icon {
+  color: primary-color();
+  margin-right: 5px;
+}
+
+.list-inline {
+  padding-left: 0;
+  li {
+    margin-right: 1em;
+  }
+}
+
+.social,
+.service-list,
+#contact-section,
+.contact-info,
+.top-bar {
+  padding-left: 1em;
+  li {
+    list-style: none;
+    padding-left: 0.3em;
+  }
+}
+.social {
+  padding-left: 0;
+}
+.list-inline {
+  li {
+    display: inline;
+  }
+}
+
+.skill-tag {
+  padding: 3px;
+  border-radius: 2px;
+  display: inline-block;
+  border: 1px solid darken($background-color, 3%);
+  background-color: darken($background-color, 1.5%);
+  color: $fore-color;
+}
+
+app-work-experience {
+  display: block;
+  margin: 20px 0;
+}
+
+.work-includes {
+  font-style: italic;
+}

@@ -1,12 +1,17 @@
-<div class="experience item">
+<mat-card class="experience item">
 	<div class="work-place">
-		<div class="location"><i class="fa fa-map-marker" aria-hidden="true"></i>{{experience.location}}</div>
+		<div class="location"><i class="fa fa-map-marker location-icon" aria-hidden="true"></i>{{experience.location}}
+		</div>
 		<h3 class="place">{{experience.place}}</h3>
 	</div>
-	<div class="work-duration">{{experience.durationInMonths}} month{{experience.durationInMonths == 1 ? "" : "s"}}</div>
 	<div class="job-meta">
-		<div class="title">{{experience.title}}</div>
-		<div class="time">{{experience.fromTo}}</div>
+		<div class="work-duration">
+			<mat-icon>access_time</mat-icon>{{experience.fromTo}} ({{experience.durationInMonths}}
+			month{{experience.durationInMonths == 1 ? "" : "s"}})
+		</div>
+		<div class="title">
+			<mat-icon>work</mat-icon>{{experience.title}}
+		</div>
 	</div>
 	<div class="job-desc">
 		<div [innerHTML]="experience.description">
@@ -15,4 +20,4 @@
 	<div class="misc-skills">
 		<span *ngFor="let skill of experience.skills" class="skill-tag">{{skill}}</span>
 	</div>
-</div>
+</mat-card>

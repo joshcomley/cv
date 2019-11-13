@@ -1,0 +1,19 @@
+.experience {
+  padding-bottom: 2em;
+}
+.skill-tag {
+  margin-right: 5px;
+  margin-top: 5px;
+}
+
+.location-icon {
+}
+
+.job-meta {
+  > div {
+    display: flex;
+    align-items: center;
+    margin-top: 3px;
+    margin-bottom: 3px;
+  }
+}

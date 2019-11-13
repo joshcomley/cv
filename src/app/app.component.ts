@@ -4,7 +4,7 @@ import { Experience, Skill, Testimonial, PortfolioItem, Social, ExperienceType, 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
   title: string;
@@ -33,9 +33,9 @@ export class AppComponent {
     this.portfolioSite = "cv.joshcomley.com";
 
     this.profile = `<p>I am a C# and SQL Server technical architect from the UK with eleven years’ experience in .NET.</p>`;
-//<p>I have spent the last year building up a suite of cross-platform portable image and audio technologies for use on desktop, mobile* and in the cloud due for launch later this year.</p>
-//<p>In addition I have developed a scalable Azure based ASP.NET and AngularJS web application with Web API backend and accompanying phone applications for mobile*.</p>
-//<p><i>* iOS, Android and Windows Phone</i></p>`;
+    //<p>I have spent the last year building up a suite of cross-platform portable image and audio technologies for use on desktop, mobile* and in the cloud due for launch later this year.</p>
+    //<p>In addition I have developed a scalable Azure based ASP.NET and AngularJS web application with Web API backend and accompanying phone applications for mobile*.</p>
+    //<p><i>* iOS, Android and Windows Phone</i></p>`;
     this.current = "";
 
     this.experiences.push(
@@ -48,7 +48,7 @@ export class AppComponent {
         "Worcestershire, UK",
         "Developer and architect",
         "October 2016 - November 2016",
-        `<p>Work includes:</p>
+        `<p class="work-includes">Work included:</p>
         <ul>
 <li>An Angular2 based, HTML5 web application</li>
 <li>Full integration with SharePoint Online and Active Directory</li>
@@ -66,7 +66,7 @@ export class AppComponent {
         "Berlin, Germany and Worcestershire, UK",
         "Developer and architect",
         "December 2015 - August 2016",
-        `<p>Work includes:</p>
+        `<p class="work-includes">Work included:</p>
         <ul>
 <li>An .NET Core and SQL Server web application with an AngularJS and HTML5 front-end web application</li>
 <li>Web API, .NET Core based backend for above web site using Entity Framework Core, Code First and SQL Server</li>
@@ -83,7 +83,7 @@ export class AppComponent {
         "Berlin, Germany and Worcestershire, UK",
         "Developer and architect",
         "2016",
-        `<p>Work includes:</p>
+        `<p class="work-includes">Work included:</p>
         <ul>
         <li>Implementation of custom and comprehensive SQL Server based security later in Microsoft's Entity Framework Core</li>
         <li>Bug fixes submitted for Microsoft's Entity Framework Core</li>
@@ -104,7 +104,7 @@ export class AppComponent {
         "Berlin, Germany and Worcestershire, UK",
         "Developer and architect",
         "2014 - 2015",
-        `<p>Work includes:</p>
+        `<p class="work-includes">Work included:</p>
         <ul>
 <li>An MVC5/Angular JS based, HTML5 web application (in development but can demonstrate if needed)</li>
 <li>Web API based backend for above web site using Entity Framework 6, Code First and SQL Server</li>
@@ -282,13 +282,13 @@ export class AppComponent {
         }
       }
     }
-    this.keySkills.push(skillMap["C#"]);
-    this.keySkills.push(skillMap["SQL Server"]);
-    this.keySkills.push(skillMap[".NET"]);
-    this.keySkills.push(skillMap["AngularJS"]);
-    this.keySkills.push(skillMap["Angular2"]);
-    this.keySkills.push(skillMap["JavaScript"]);
-    this.keySkills.push(skillMap["Azure"]);
+    this.keySkills.push(new Skill("C#"));
+    this.keySkills.push(new Skill(".NET"));
+    this.keySkills.push(new Skill("Angular 2-9"));
+    this.keySkills.push(new Skill("SQL Server"));
+    this.keySkills.push(new Skill("JavaScript"));
+    this.keySkills.push(new Skill("TypeScript"));
+    this.keySkills.push(new Skill("Azure"));
     //<p>Key skills include <b>C#, ASP.NET, MVC, Unit Testing, CSS, XHTML, Javascript, AngularJS, jQuery, SQL, Xamarin and Azure</b>.</p>
 
     //this.skills.push(new Skill("C#", ".NET", 98, "Expert", "11", "I am good"));
@@ -298,10 +298,10 @@ export class AppComponent {
     this.helps.push("SQL Server design and development");
     this.helps.push("Web development with Angular2, AngularJS or ASP.NET MVC");
 
-    this.socials.push(new Social("https://uk.linkedin.com/in/joshcomley", "fa fa-linkedin"));
-    this.socials.push(new Social("https://twitter.com/joshcomley", "fa fa-twitter"));
-    this.socials.push(new Social("https://plus.google.com/+JoshComley", "fa fa-google-plus"));
-    this.socials.push(new Social("https://github.com/joshcomley", "fa fa-github-alt"));
+    this.socials.push(new Social("https://uk.linkedin.com/in/joshcomley", "fab fa-linkedin", "uk.linkedin.com/in/joshcomley"));
+    this.socials.push(new Social("https://twitter.com/joshcomley", "fab fa-twitter", "twitter.com/joshcomley"));
+    this.socials.push(new Social("https://github.com/joshcomley", "fab fa-github-alt", "github.com/joshcomley"));
+    this.socials.push(new Social("https://stackoverflow.com/users/64519/joshcomley", "fab fa-stack-overflow", "stackoverflow.com/users/64519/joshcomley"))
     //this.socials.push(new Social("", "fa fa-skype"));
   }
 
@@ -311,38 +311,5 @@ export class AppComponent {
 
   phoneNumber(number): string {
     return "tel: " + number.split(" ").join("");
-  }
-}
-@Pipe({
-  name: 'importantSkills',
-  pure: false
-})
-@Injectable()
-export class ImportantSkillsPipe implements PipeTransform {
-  transform(items: Skill[], args: boolean): any {
-    // filter items array, items which match and return true will be kept, false will be filtered out
-    return items.filter(item => args ? item.description : !item.description);
-  }
-}
-
-@Pipe({
-  name: "orderByExperience"
-})
-export class OrderByExperiencePipe {
-  transform(array: Array<Skill>, args: string): Array<Skill> {
-    array.sort((a: Skill, b: Skill) => {
-      if (a.months < b.months) {
-        return 1;
-      } else if (a.months > b.months) {
-        return -1;
-      }
-      if (a.mostRecentYear < b.mostRecentYear) {
-        return 1;
-      } else if (a.mostRecentYear > b.mostRecentYear) {
-        return -1;
-      }
-        return 0;
-    });
-    return array;
   }
 }

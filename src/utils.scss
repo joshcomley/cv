@@ -1,0 +1,28 @@
+@import "~@angular/material/theming";
+// Include non-theme styles for core.
+@include mat-core();
+
+$primary: mat-palette($mat-cyan);
+$accent: mat-palette($mat-deep-orange);
+$theme: mat-dark-theme($primary, $accent);
+
+@include angular-material-theme($theme);
+
+@function primary-color() {
+  @return mat-color(map-get($theme, primary));
+}
+
+@function accent-color() {
+  @return mat-color(map-get($theme, accent));
+}
+
+@function background-color() {
+  @return mat-color(map-get($theme, background), background);
+}
+
+@function foreground-color() {
+  @return mat-color(map-get($theme, foreground), base);
+}
+
+$background-color: background-color();
+$fore-color: foreground-color();
