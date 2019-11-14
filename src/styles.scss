@@ -15,6 +15,7 @@ html {
 body {
   max-width: 1024px;
   margin: 0 auto;
+  background-color: background-color();
 }
 
 $print-body-margin: 20px;
@@ -24,15 +25,13 @@ $print-body-margin: 20px;
     margin-right: $print-body-margin;
   }
   @page {
-    margin-top: 20mm;
-    background-color: red;
   }
   .page-nav-space-holder {
     display: none;
   }
-  mat-card,
+  .card-container,
   h2 {
-    padding-top: 10mm !important;
+    padding-top: 5mm !important;
   }
   #contact-section,
   mat-card {

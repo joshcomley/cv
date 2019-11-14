@@ -6,22 +6,24 @@
     <!-- <li><i class="fa fa-phone"></i> <a href="{{phoneNumber(whatsApp)}}">{{whatsApp}} (WhatsApp)</a></li> -->
     <li class="website"><i class="fa fa-globe"></i><a href="#" target="_blank">{{portfolioSite}}</a></li>
   </ul>
-  <mat-card class="intro">
-    <div class="container text-center">
-      <!-- <app-profile-image></app-profile-image> -->
-      <div class="title">{{title}}</div>
-      <div class="profile">
-        <div [innerHTML]="profile"></div>
-        <app-socials [socials]="socials"></app-socials>
-        <h3>Key skills</h3>
-        <app-key-skills [skills]="keySkills"></app-key-skills>
-        <p><strong>I can help with the following:</strong></p>
-        <ul class="service-list">
-          <li *ngFor="let help of helps"><i class="fa fa-check" aria-hidden="true"></i> {{help}}</li>
-        </ul>
+  <div class="card-container">
+    <mat-card class="intro">
+      <div class="container text-center">
+        <!-- <app-profile-image></app-profile-image> -->
+        <div class="title">{{title}}</div>
+        <div class="profile">
+          <div [innerHTML]="profile"></div>
+          <app-socials [socials]="socials"></app-socials>
+          <h3>Key skills</h3>
+          <app-key-skills [skills]="keySkills"></app-key-skills>
+          <p><strong>I can help with the following:</strong></p>
+          <ul class="service-list">
+            <li *ngFor="let help of helps"><i class="fa fa-check" aria-hidden="true"></i> {{help}}</li>
+          </ul>
+        </div>
       </div>
-    </div>
-  </mat-card>
+    </mat-card>
+  </div>
   <div class="page-break"></div>
   <div class="page-nav-space-holder hidden-xs">
     <div id="page-nav-wrapper" class="page-nav-wrapper text-center">
@@ -115,9 +117,5 @@
       </div>
     </div>
   </section>
+  <div class="page-break"></div>
 </div>
-
-<footer class="footer text-center">
-  <div class="container">
-  </div>
-</footer>
