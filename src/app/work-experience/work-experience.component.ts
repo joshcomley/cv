@@ -8,6 +8,7 @@ import { Experience } from "../shared";
   styleUrls: ['./work-experience.component.scss']
 })
 export class WorkExperienceComponent implements OnInit {
+  @Input() public showPrintHack = false;
   @Input() experience: Experience;
   public portal: ComponentPortal<any>;
   constructor(protected injector: Injector) { }

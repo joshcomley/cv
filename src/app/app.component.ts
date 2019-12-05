@@ -1,7 +1,8 @@
-import { Component, Pipe, Injectable, PipeTransform } from '@angular/core';
+import { Component, Pipe, Injectable, PipeTransform, Inject } from '@angular/core';
 import { Experience, Skill, Testimonial, PortfolioItem, Social, ExperienceType, ExperienceReference, KeySummary } from "./shared";
 import { SelfEmploymentComponent } from './self-employment/self-employment.component';
 import { HazceptionComponent } from './hazception/hazception.component';
+import { DOCUMENT } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -9,6 +10,7 @@ import { HazceptionComponent } from './hazception/hazception.component';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  themeName: string = "Dark";
   title: string;
   name: string;
   email: string;
@@ -27,7 +29,7 @@ export class AppComponent {
   keySkills = new Array<Skill>();
   keySummaries = new Array<KeySummary>();
 
-  constructor() {
+  constructor(@Inject(DOCUMENT) protected document: Document) {
     this.title = "Full stack developer and architect";
     this.name = "Josh Comley";
     this.email = "joshcomley@googlemail.com";
@@ -70,25 +72,25 @@ export class AppComponent {
       new Experience(
         ExperienceType.Contract,
         null,
-        2015,
+        2017,
         "Self-employed (Brandless Limited)",
         null,
         "Remote Working",
         "Developer and architect",
-        "December 2015 - now",
+        "March 2017 - now",
         SelfEmploymentComponent,
         ["C#", ".NET", ".NET Core", "Angular2-9", "Azure", "Code First", "MVC5", "Entity Framework Core", "BDD", "TDD", "SOLID", "REST", " Mobile", "C# 4.0", "ASP.NET", "SQL Server", "XHTML", "CSS", "JavaScript", "LINQ"]));
 
     this.experiences.push(
       new Experience(
         ExperienceType.Contract,
-        9,
+        12,
         2016,
         "Hazception Limited",
         null,
         "Remote Working",
         "Developer and architect",
-        "December 2015 - August 2016",
+        "December 2015 - December 2016",
         HazceptionComponent,
         ["C#", ".NET", ".NET Core", "Angular2", "AngularJS", "Azure", "Code First", "MVC5", "Entity Framework Core", "BDD", "TDD", "SOLID", "REST", "Bootstrap", "Xamarin", " Mobile", "C# 4.0", "ASP.NET", "SQL Server", "XHTML", "CSS", "JavaScript", "jQuery", "LINQ"]));
 
@@ -146,8 +148,9 @@ export class AppComponent {
         "May 2013 - October 2013",
         `<p>My work at Sciensus ranged from rapid creation of a fully customised call centre web application to ensure swift and accurate recall of faulty medical equipment, to a web based disease tracking system for Hepatitis.</p>
 <p>Good UX, high security and data anonymity were all essential when building these applications as they were to be used in high pressure, security critical environments.</p>
-<p>I introduced the team to a number of principles including DRY, agile and a collection of newer technologies such as Bootstrap.</p>`,
-        ["C#", ".NET", "Agile", "BDD", "TDD", "SOLID", "REST", "Team Training", "MVC 4/3", "Bootstrap", "C# 4.0", "ASP.NET", "Client Facing", "SQL Server", "XHTML", "CSS", "JavaScript", "jQuery", "LINQ"],
+<p>I introduced the team to a number of principles including DRY, agile and a collection of newer (at the time) technologies such as Bootstrap.</p>
+<p>My role also involved mentoring other developers there</p>`,
+        ["C#", ".NET", "Mentoring", "Agile", "BDD", "TDD", "SOLID", "REST", "Team Training", "MVC 4/3", "Bootstrap", "C# 4.0", "ASP.NET", "Client Facing", "SQL Server", "XHTML", "CSS", "JavaScript", "jQuery", "LINQ"],
         new ExperienceReference("Kim Whaling", "+44 (0) 333 103 9780", "Sciensus, First floor office, Chelsea House, 8-14 The Broadway, Haywards Heath, RH16 3AH")));
 
     this.experiences.push(
@@ -166,7 +169,7 @@ export class AppComponent {
 <p>My role was to work as technical lead for the team of 5 developers and architect on the project from start to finish. The front end to the application was built in MVC 4. This included managing and training team members in Ukraine.</p>
 <p>The only decision beyond my control was the employment of SharePoint 2010 as a backend for the data, however all SharePoint access was abstracted away via an OData driven RESTful WCF service authenticated using OAuth – in other words we created a full, public (secured) REST API for the application. SharePoint is completely dynamic; the customer can change their experience very easily, adding columns to existing “tables”, even new “tables” of data and so on. The API had to reflect this live, delivering different data and metadata whilst the web application had to be robust enough to survive such changes in its underlying schema without requiring a reboot.</p>
 <p>This particular project was one of the most challenging yet of my career due to an incredible number of hidden complexities and limitations within the underlying key technologies when dealing with completely dynamic data feeds. It has also given me excellent experience leading and managing a team of developers.</p>`,
-        ["C#", ".NET", "Agile", "BDD", "TDD", "SOLID", "REST", "Team Training", "OAuth", "OpenId", "MVC 4/3", "C# 4.0", "C# 3.5", " ASP.NET", "Client Facing", "SharePoint 2010", "Continuous Integration", "SQL Server", "XHTML", "CSS", "JavaScript", "jQuery", "WinForms", "WebForms", "Technical Writing", "LINQ"],
+        ["C#", ".NET", "Mentoring", "Agile", "BDD", "TDD", "SOLID", "REST", "Team Training", "OAuth", "OpenId", "MVC 4/3", "C# 4.0", "C# 3.5", " ASP.NET", "Client Facing", "SharePoint 2010", "Continuous Integration", "SQL Server", "XHTML", "CSS", "JavaScript", "jQuery", "WinForms", "WebForms", "Technical Writing", "LINQ"],
         new ExperienceReference("Dave Ashenhurst", "+447966582174", "India House, 45 Curlew Street, London SE1 2ND, United Kingdom")));
 
     this.experiences.push(
@@ -330,5 +333,15 @@ export class AppComponent {
 
   phoneNumber(number): string {
     return "tel: " + number.split(" ").join("");
+  }
+
+  public switchTheme() {
+    let body = this.document.getElementsByTagName("html")[0];
+    if (body.className.includes("dark")) {
+      this.themeName = "Light";
+    } else {
+      this.themeName = "Dark";
+    }
+    body.className = this.themeName.toLowerCase();
   }
 }

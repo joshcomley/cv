@@ -1,12 +1,9 @@
-@import "~@angular/material/theming";
-// Include non-theme styles for core.
-@include mat-core();
-
-$primary: mat-palette($mat-cyan);
-$accent: mat-palette($mat-deep-orange);
-$theme: mat-dark-theme($primary, $accent);
-
-@include angular-material-theme($theme);
+@import "~highlight.js/styles/a11y-dark.css";
+@import "~@fortawesome/fontawesome-free/css/fontawesome.css";
+@import "~@fortawesome/fontawesome-free/css/solid.css";
+@import "~@fortawesome/fontawesome-free/css/regular.css";
+@import "~@fortawesome/fontawesome-free/css/brands.css";
+@import "./md";
 
 @function primary-color() {
   @return mat-color(map-get($theme, primary));
@@ -26,3 +23,173 @@ $theme: mat-dark-theme($primary, $accent);
 
 $background-color: background-color();
 $fore-color: foreground-color();
+$is-dark-theme: map-get($theme, is-dark);
+
+/* You can add global styles to this file, and also import other style files */
+html {
+  font-family: sans-serif;
+}
+
+body {
+  max-width: 1024px;
+  margin: 0 auto;
+  background-color: background-color();
+}
+.work-experience-print-hack {
+  display: none;
+}
+.cv-body {
+  padding: 0 0.3em;
+}
+$print-body-margin: 20px;
+@media print {
+  .cv-body {
+    padding: 0;
+  }
+  #theme-toggle mat-slide-toggle {
+    display: none;
+  }
+  body {
+    margin-left: $print-body-margin;
+    margin-right: $print-body-margin;
+  }
+  html,
+  body.mat-app-background {
+    background-color: #fff !important;
+  }
+  .main-me {
+    display: none;
+  }
+  @page {
+  }
+  .page-nav-space-holder {
+    display: none;
+  }
+  .project-container,
+  .card-container,
+  h2 {
+    padding-top: 5mm !important;
+  }
+  .project {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  .project,
+  #contact-section,
+  mat-card {
+    page-break-inside: avoid;
+  }
+  .page-break {
+    page-break-before: always;
+  }
+  #experiences-section {
+    margin-top: 1em;
+    padding-top: 2.5em;
+  }
+  .section-title.work-experience {
+    display: none;
+  }
+  .work-experience-print-hack {
+    display: block !important;
+    position: absolute;
+    top: -3em;
+    left: 0;
+  }
+  // h2.work-experience {
+  //   page-break-after: avoid;
+  // }
+}
+
+h1.name {
+}
+
+a {
+  color: accent-color();
+  text-decoration: none;
+}
+
+i,
+mat-icon {
+  color: primary-color();
+  margin-right: 5px;
+}
+
+.list-inline {
+  padding-left: 0;
+  li {
+    margin-right: 1em;
+  }
+}
+
+.social,
+.service-list,
+#contact-section,
+.contact-info,
+.top-bar {
+  padding-left: 1em;
+  li {
+    list-style: none;
+    padding-left: 0.3em;
+  }
+}
+.social {
+  padding-left: 0;
+}
+.list-inline {
+  li {
+    display: inline;
+  }
+}
+
+.skill-tag {
+  padding: 3px;
+  border-radius: 2px;
+  display: inline-block;
+  border: 1px solid darken($background-color, 3%);
+  background-color: darken($background-color, 1.5%);
+  color: $fore-color;
+}
+
+app-work-experience {
+  display: block;
+  margin: 20px 0;
+}
+
+.work-includes {
+  font-style: italic;
+}
+
+.primary {
+  color: primary-color();
+}
+.key-summary-title {
+  display: inline-block;
+  margin-right: 1em;
+  min-width: 130px;
+}
+
+.job-desc {
+  background-color: if($is-dark-theme, lighten(background-color(), 3%), darken(background-color(), 3%));
+  padding: 0.3em 1em;
+  margin: 0.8em 0;
+}
+
+.project {
+  background-color: if($is-dark-theme, lighten(background-color(), 6%), darken(background-color(), 9%));
+  border-left: 2px solid rgba(accent-color(), 1);
+  padding: 10px 1em 0.5em 1em;
+  margin: 1em 0;
+  h3 {
+    margin-top: 0;
+    color: primary-color();
+  }
+}
+
+.breaker {
+  border-bottom: 1px solid rgba(accent-color(), 0.5);
+}
+
+.split {
+  display: grid;
+  grid-template-columns: [col] 1fr [col] auto;
+}
