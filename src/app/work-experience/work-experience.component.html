@@ -17,6 +17,7 @@
 			</div>
 		</div>
 		<div class="job-desc">
+			<p *ngIf="experience.summary">{{experience.summary}}</p>
 			<div *ngIf="descriptionIsString" [innerHTML]="experience.description">
 			</div>
 			<div *ngIf="!descriptionIsString && portal">

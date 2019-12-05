@@ -18,6 +18,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SelfEmploymentComponent } from './self-employment/self-employment.component';
 import { PortalModule } from '@angular/cdk/portal';
 import { HighlightModule } from 'ngx-highlightjs';
+import { HazceptionComponent } from './hazception/hazception.component';
  
 @NgModule({
   imports: [
@@ -41,7 +42,8 @@ import { HighlightModule } from 'ngx-highlightjs';
     PortfolioItemComponent,
     SocialsComponent,
     ProfileImageComponent,
-    SelfEmploymentComponent
+    SelfEmploymentComponent,
+    HazceptionComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

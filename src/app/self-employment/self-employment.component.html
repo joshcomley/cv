@@ -1,40 +1,55 @@
 <div class="self-employment">
     <p>Since 2016 I have been building up a portfolio of products and tools, including:</p>
-    <div class="project">
+    <div class="project" id="typesharp">
         <h3>TypeSharp</h3>
-        <p>TypeSharp (<a target="_blank" href="https://app.typesharp.co">app.typesharp.co</a>) is a C# to TypeScript
+        <p>TypeSharp is a C# to TypeScript
             converter. Although it
             has an API, for demonstration purposes it has been wrapped up into an Angular application. You can import
             and
             export workspaces, all cached in the browser.</p>
+        <p>See <a target="_blank" href="https://app.typesharp.co">app.typesharp.co</a> for demo (very early alpha)</p>
     </div>
 
-    <div class="project">
-        <h3>IQL (will soon be open-sourced)</h3>
-        <p>IQL is an ORM built in C#, converted to TypeScript (and ultimately JavaScript) via TypeSharp. This means the
+    <div class="project" id="iql">
+        <h3>IQL (soon to be open-sourced)</h3>
+        <p>IQL is an ORM built in C#, converted to TypeScript (and ultimately JavaScript) via <a
+                href="#typesharp">TypeSharp</a>. This means the
             same
             code can run in .NET, Node, the browser and even phones via tools like NativeScript, React Native, Xamarin,
             Cordova etc.</p>
         <p>It can map to any data endpoint (custom providers can be written) and enables Entity Framework style querying
             from TypeScript/JavaScript.</p>
-        <pre><code [highlight]="code"></code></pre>
+        <h4>Getting data</h4>
+        <pre><code [highlight]="code" [languages]="languages"></code></pre>
+        <h4>Modifying data</h4>
+        <pre><code [highlight]="code2" [languages]="languages"></code></pre>
         <p>IQL supports offline data synchronisation and is provided out-of-the-box with an OData provider.</p>
         <p>IQL was built heavily with TDD and has around 600 unit tests. The tests also convert to TypeScript and run in
             Mocha.</p>
     </div>
 
     <div class="project">
-        <h3>DocNet (will soon be open-sourced)</h3>
-        <p>DocNet is a Word document templating tool built in C# and converted to TypeScript via TypeSharp.</p>
+        <h3>DocNet (soon to be open-sourced)</h3>
+        <p>DocNet is a Word document templating tool built in C# and converted to TypeScript via <a
+                href="#typesharp">TypeSharp</a>.</p>
         <p>It enables Angular-esque templates to be converted into Word documents and works in .NET, the browser, Node
             etc.
         </p>
+        <p>DocNet allows JavaScript queries to be embedded within a word document for templating, which are compiled and
+            executed by the dynamic JavaScript engine in <a href="#iql">IQL</a></p>
+        <p>The following code demonstrates usage which can be written into a Word document via Microsoft Word.</p>
+        <p>It will iterate through a list of blog posts printing out the author,
+            their photo. Then for fans of the blog post (it's a demo!) it will show their location on a map which
+            becomes embedded within the word document with a red pin if their location has a certain status otherwise a
+            green pin. Convoluted, but demos the abilities of the tool!</p>
+        <pre><code [highlight]="docNet" [languages]="languages"></code></pre>
     </div>
 
     <div class="project">
         <h3>TsBeautify (open-source)</h3>
         <p>TsBeautify (<a href="https://github.com/joshcomley/tsbeautify">github.com/joshcomley/tsbeautify</a>) is an
-            open-source code beautifier written in C# and converted to TypeScript via TypeSharp. This also runs in .NET,
+            open-source code beautifier written in C# and converted to TypeScript via <a
+                href="#typesharp">TypeSharp</a>. This also runs in .NET,
             Node, web browsers and on phones.</p>
     </div>
 </div>
