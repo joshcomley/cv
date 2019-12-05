@@ -1,3 +1,13 @@
+import { ComponentType } from '@angular/cdk/portal';
+
+export class KeySummary {
+    constructor(
+        public title: string,
+        public duration: string
+    ) {
+
+    }
+}
 export class Social {
     constructor(
         public link: string,
@@ -31,7 +41,7 @@ export class Experience {
         public location: string,
         public title: string,
         public fromTo: string,
-        public description: string,
+        public description: string | ComponentType<any>,
         public skills?: Array<string>,
         public reference?: ExperienceReference) {
         this.type = type;

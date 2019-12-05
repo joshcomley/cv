@@ -15,14 +15,19 @@ import { ImportantSkillsPipe, OrderByExperiencePipe } from './pipes';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { SelfEmploymentComponent } from './self-employment/self-employment.component';
+import { PortalModule } from '@angular/cdk/portal';
+import { HighlightModule } from 'ngx-highlightjs';
+ 
 @NgModule({
   imports: [
     BrowserModule,
     MatCardModule,
     MatIconModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    PortalModule,
+    HighlightModule
   ],
   declarations: [
     AppComponent,
@@ -35,7 +40,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     OrderByExperiencePipe,
     PortfolioItemComponent,
     SocialsComponent,
-    ProfileImageComponent
+    ProfileImageComponent,
+    SelfEmploymentComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,3 +1,4 @@
+@import '~highlight.js/styles/a11y-dark';
 @import "~@fortawesome/fontawesome-free/css/fontawesome.css";
 @import "~@fortawesome/fontawesome-free/css/solid.css";
 @import "~@fortawesome/fontawesome-free/css/regular.css";
@@ -100,4 +101,36 @@ app-work-experience {
 
 .work-includes {
   font-style: italic;
+}
+
+.primary {
+  color: primary-color();
+}
+.key-summary-title {
+  display: inline-block;
+  margin-right: 1em;
+  min-width: 130px;
+}
+
+.job-desc {
+  background-color: lighten(background-color(), 3%);
+  padding: 0.3em 1em;
+  margin: 0.8em 0;
+}
+
+.project {
+  background-color: lighten(background-color(), 6%);
+  border-left: 2px solid rgba(accent-color(), 1);
+  padding-left: 1em;
+  padding-top: 10px;
+  padding-bottom: 0.5em;
+  margin: 1em 0;
+  h3 {
+    margin-top: 0;
+    color: primary-color();
+  }
+}
+
+.breaker {
+  border-bottom: 1px solid rgba(accent-color(), 0.5);
 }

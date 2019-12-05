@@ -1,5 +1,6 @@
 import { Component, Pipe, Injectable, PipeTransform } from '@angular/core';
-import { Experience, Skill, Testimonial, PortfolioItem, Social, ExperienceType, ExperienceReference } from "./shared";
+import { Experience, Skill, Testimonial, PortfolioItem, Social, ExperienceType, ExperienceReference, KeySummary } from "./shared";
+import { SelfEmploymentComponent } from './self-employment/self-employment.component';
 
 @Component({
   selector: 'app-root',
@@ -23,6 +24,7 @@ export class AppComponent {
   helps = new Array<string>();
   socials = new Array<Social>();
   keySkills = new Array<Skill>();
+  keySummaries = new Array<KeySummary>();
 
   constructor() {
     this.title = "Full stack developer and architect";
@@ -31,30 +33,50 @@ export class AppComponent {
     this.phone = "+447979 857504";
     this.whatsApp = "+491781 413829";
     this.portfolioSite = "cv.joshcomley.com";
-
-    this.profile = `<p>I am a C# and SQL Server technical architect from the UK with eleven years’ experience in .NET.</p>`;
+    this.keySummaries.push(new KeySummary(".NET (C#)", "15 years"));
+    this.keySummaries.push(new KeySummary(".NET Core (C#)", "4 years (since beta)"));
+    this.keySummaries.push(new KeySummary("Angular2+", "3 years (since beta)"));
+    this.keySummaries.push(new KeySummary("AngularJS", "3 years"));
+    this.keySummaries.push(new KeySummary("Azure", "6 years"));
+    this.keySummaries.push(new KeySummary("SQL Server", "15 years"));
+    this.keySummaries.push(new KeySummary("JavaScript", "14 years"));
+    this.keySummaries.push(new KeySummary("TypeScript", "4 years"));
+    // this.profile = `<p>I am a full-stack (C#, SQL Server, Angular, ASP.NET) technical architect from the UK.</p>`;
     //<p>I have spent the last year building up a suite of cross-platform portable image and audio technologies for use on desktop, mobile* and in the cloud due for launch later this year.</p>
     //<p>In addition I have developed a scalable Azure based ASP.NET and AngularJS web application with Web API backend and accompanying phone applications for mobile*.</p>
     //<p><i>* iOS, Android and Windows Phone</i></p>`;
     this.current = "";
 
+    //     this.experiences.push(
+    //       new Experience(
+    //         ExperienceType.Contract,
+    //         2,
+    //         2016,
+    //         "Mount Anvil Limited",
+    //         "SharePoint Online based web application for managing internal training courses.",
+    //         "Worcestershire, UK",
+    //         "Developer and architect",
+    //         "October 2016 - November 2016",
+    //         `<p class="work-includes">Work included:</p>
+    //         <ul>
+    // <li>An Angular2 based, HTML5 web application</li>
+    // <li>Full integration with SharePoint Online and Active Directory</li>
+    // <li>Programmatically importing and rationalising existing spreadsheet based complex dataset</li>
+    // </ul>`,
+    //         ["C#", ".NET", "SharePoint Online", "Graph API", "Active Directory", ".NET Core", "Angular2", "Azure", "SOLID", "Bootstrap", "Mobile", "XHTML", "CSS", "JavaScript", "AJAX", "jQuery", "LINQ"]));
+
     this.experiences.push(
       new Experience(
         ExperienceType.Contract,
-        2,
+        null,
         2016,
-        "Mount Anvil Limited",
-        "SharePoint Online based web application for managing internal training courses.",
-        "Worcestershire, UK",
+        "Self-employed",
+        "Developed a web application for creating, editing and taking video based hazard awareness examinations.",
+        "Remote Working",
         "Developer and architect",
-        "October 2016 - November 2016",
-        `<p class="work-includes">Work included:</p>
-        <ul>
-<li>An Angular2 based, HTML5 web application</li>
-<li>Full integration with SharePoint Online and Active Directory</li>
-<li>Programmatically importing and rationalising existing spreadsheet based complex dataset</li>
-</ul>`,
-        ["C#", ".NET", "SharePoint Online", "Graph API", "Active Directory", ".NET Core", "Angular2", "Azure", "SOLID", "Bootstrap", "Mobile", "XHTML", "CSS", "JavaScript", "AJAX", "jQuery", "LINQ"]));
+        "August 2016 - now",
+        SelfEmploymentComponent,
+        ["C#", ".NET", ".NET Core", "Angular2", "AngularJS", "Azure", "Code First", "MVC5", "Entity Framework Core", "BDD", "TDD", "SOLID", "REST", "Bootstrap", "Xamarin", " Mobile", "C# 4.0", "ASP.NET", "SQL Server", "XHTML", "CSS", "JavaScript", "AJAX", "jQuery", "LINQ"]));
 
     this.experiences.push(
       new Experience(
@@ -63,7 +85,7 @@ export class AppComponent {
         2016,
         "Hazception Limited",
         "Developed a web application for creating, editing and taking video based hazard awareness examinations.",
-        "Berlin, Germany and Worcestershire, UK",
+        "Remote Working",
         "Developer and architect",
         "December 2015 - August 2016",
         `<p class="work-includes">Work included:</p>
@@ -80,7 +102,7 @@ export class AppComponent {
         2015,
         "Self-employed (Brandless Limited)",
         "As part of .NET Core development, porting and creating world-first .NET Core libraries.",
-        "Berlin, Germany and Worcestershire, UK",
+        "Remote Working",
         "Developer and architect",
         "2016",
         `<p class="work-includes">Work included:</p>
@@ -101,7 +123,7 @@ export class AppComponent {
         2015,
         "Self-employed (Brandless Limited)",
         "Developing a suite of portable technologies and applications for my own business.",
-        "Berlin, Germany and Worcestershire, UK",
+        "Remote Working",
         "Developer and architect",
         "2014 - 2015",
         `<p class="work-includes">Work included:</p>

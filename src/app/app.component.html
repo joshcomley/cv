@@ -10,16 +10,26 @@
     <mat-card class="intro">
       <div class="container text-center">
         <!-- <app-profile-image></app-profile-image> -->
-        <div class="title">{{title}}</div>
+        <!-- <div class="title">{{title}}</div> -->
         <div class="profile">
-          <div [innerHTML]="profile"></div>
+          <!-- <div [innerHTML]="profile"></div> -->
+          <div>
+            <div class="title">
+              <p>I am a full-stack (C#, Angular, SQL Server, ASP.NET) technical architect in London, UK.</p>
+            </div>
+            <ul *ngIf="keySummaries && keySummaries.length" class="service-list">
+              <li *ngFor="let keySummary of keySummaries"><i class="fa fa-check" aria-hidden="true"></i>&nbsp;<span
+                  class="key-summary-title">{{keySummary.title}}</span> <span
+                  class="primary">{{keySummary.duration}}</span></li>
+            </ul>
+          </div>
           <app-socials [socials]="socials"></app-socials>
-          <h3>Key skills</h3>
-          <app-key-skills [skills]="keySkills"></app-key-skills>
-          <p><strong>I can help with the following:</strong></p>
+          <!-- <h3>Key skills</h3>
+          <app-key-skills [skills]="keySkills"></app-key-skills> -->
+          <!-- <p><strong>I can help with the following:</strong></p>
           <ul class="service-list">
-            <li *ngFor="let help of helps"><i class="fa fa-check" aria-hidden="true"></i> {{help}}</li>
-          </ul>
+            <li *ngFor="let help of helps"><i class="fa fa-check" aria-hidden="true"></i>&nbsp;{{help}}</li>
+          </ul> -->
         </div>
       </div>
     </mat-card>
@@ -29,9 +39,9 @@
     <div id="page-nav-wrapper" class="page-nav-wrapper text-center">
       <div class="container">
         <ul id="page-nav" class="nav page-nav list-inline">
-          <li *ngIf="experiences.length"><a class="scrollto" href="#experiences-section">Experiences</a></li>
+          <li *ngIf="experiences.length"><a class="scrollto" href="#experiences-section">Experience</a></li>
           <li *ngIf="educations.length"><a class="scrollto" href="#eudcation-section">Education</a></li>
-          <li *ngIf="skills.length"><a class="scrollto" href="#skills-section">Skills</a></li>
+          <!-- <li *ngIf="skills.length"><a class="scrollto" href="#skills-section">Skills</a></li> -->
           <li *ngIf="testimonials.length"><a class="scrollto" href="#testimonials-section">Testimonials</a></li>
           <li *ngIf="portfolioItems.length"><a class="scrollto" href="#portfolio-section">Portfolio</a></li>
           <li><a class="scrollto" href="#contact-section">Contact</a></li>

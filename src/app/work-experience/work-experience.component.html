@@ -1,22 +1,27 @@
 <div class="card-container">
 	<mat-card class="experience item">
 		<div class="work-place">
-			<div class="location"><i class="fa fa-map-marker location-icon"
-					aria-hidden="true"></i>{{experience.location}}
-			</div>
 			<h3 class="place">{{experience.place}}</h3>
+			<span class="location"><i class="fa fa-map-marker location-icon"
+					aria-hidden="true"></i>{{experience.location}}
+			</span>
 		</div>
 		<div class="job-meta">
 			<div class="work-duration">
-				<mat-icon>access_time</mat-icon>{{experience.fromTo}} ({{experience.durationInMonths}}
-				month{{experience.durationInMonths == 1 ? "" : "s"}})
+				<mat-icon>access_time</mat-icon>{{experience.fromTo}}
+				<ng-container *ngIf="experience.durationInMonths != null">({{experience.durationInMonths}}
+					month{{experience.durationInMonths == 1 ? "" : "s"}})</ng-container>
 			</div>
 			<div class="title">
 				<mat-icon>work</mat-icon>{{experience.title}}
 			</div>
 		</div>
 		<div class="job-desc">
-			<div [innerHTML]="experience.description">
+			<div *ngIf="descriptionIsString" [innerHTML]="experience.description">
+			</div>
+			<div *ngIf="!descriptionIsString && portal">
+				<ng-template [cdkPortalOutlet]="portal">
+				</ng-template>
 			</div>
 		</div>
 		<div class="misc-skills">

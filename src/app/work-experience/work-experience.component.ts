@@ -1,5 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Experience } from  "../shared";
+import { ComponentPortal, PortalInjector } from '@angular/cdk/portal';
+import { Component, Injector, Input, OnInit } from '@angular/core';
+import { Experience } from "../shared";
 
 @Component({
   selector: 'app-work-experience',
@@ -8,9 +9,17 @@ import { Experience } from  "../shared";
 })
 export class WorkExperienceComponent implements OnInit {
   @Input() experience: Experience;
-  constructor() { }
+  public portal: ComponentPortal<any>;
+  constructor(protected injector: Injector) { }
 
   ngOnInit() {
+    if (typeof this.experience.description != "string") {
+      let portalInjector = new PortalInjector(this.injector, new WeakMap<any, any>());
+      this.portal = new ComponentPortal(this.experience.description, null, portalInjector);
+    }
   }
 
+  public get descriptionIsString(): boolean {
+    return typeof this.experience.description == "string";
+  }
 }

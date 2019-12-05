@@ -17,3 +17,17 @@
     margin-bottom: 3px;
   }
 }
+
+.place {
+  display: inline;
+  margin-right: 1em;
+}
+
+.work-place {
+  margin-bottom: 1em;
+  .place {
+    margin: 0;
+  }
+  display: grid;
+  grid-template-columns: [col] 1fr [col] auto;
+}
