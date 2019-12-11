@@ -41,13 +41,15 @@ body {
 .cv-body {
   padding: 0 0.3em;
 }
+
 $print-body-margin: 20px;
 @media print {
   .cv-body {
     padding: 0;
   }
+  .save-as-pdf,
   #theme-toggle mat-slide-toggle {
-    display: none;
+    display: none !important;
   }
   body {
     margin-left: $print-body-margin;

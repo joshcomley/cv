@@ -1,15 +1,16 @@
-import { Component, Pipe, Injectable, PipeTransform, Inject } from '@angular/core';
+import { Component, Pipe, Injectable, PipeTransform, Inject, OnInit, AfterViewChecked, AfterContentInit } from '@angular/core';
 import { Experience, Skill, Testimonial, PortfolioItem, Social, ExperienceType, ExperienceReference, KeySummary } from "./shared";
 import { SelfEmploymentComponent } from './self-employment/self-employment.component';
 import { HazceptionComponent } from './hazception/hazception.component';
 import { DOCUMENT } from '@angular/common';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   themeName: string = "Dark";
   title: string;
   name: string;
@@ -28,8 +29,9 @@ export class AppComponent {
   socials = new Array<Social>();
   keySkills = new Array<Skill>();
   keySummaries = new Array<KeySummary>();
+  fragment: string;
 
-  constructor(@Inject(DOCUMENT) protected document: Document) {
+  constructor(@Inject(DOCUMENT) protected document: Document, private route: ActivatedRoute) {
     this.title = "Full stack developer and architect";
     this.name = "Josh Comley";
     this.email = "joshcomley@googlemail.com";
@@ -40,6 +42,7 @@ export class AppComponent {
     this.keySummaries.push(new KeySummary(".NET Core (C#)", "4 years (since beta)"));
     this.keySummaries.push(new KeySummary("Angular2+", "3 years (since beta)"));
     this.keySummaries.push(new KeySummary("AngularJS", "3 years"));
+    this.keySummaries.push(new KeySummary("ASP.NET MVC", "6 years"));
     this.keySummaries.push(new KeySummary("Azure", "6 years"));
     this.keySummaries.push(new KeySummary("SQL Server", "15 years"));
     this.keySummaries.push(new KeySummary("JavaScript", "14 years"));
@@ -104,8 +107,7 @@ export class AppComponent {
         "Remote Working",
         "Developer and architect",
         "2016",
-        `
-        <ul>
+        `<ul>
         <li>Implementation of custom and comprehensive SQL Server based security later in Microsoft's Entity Framework Core</li>
         <li>Bug fixes submitted for Microsoft's Entity Framework Core</li>
 <li>.NET Core port of Microsoft's .NET OData implementation</li>
@@ -113,7 +115,9 @@ export class AppComponent {
 <li>.NET Core port of Microsoft's System.Net.Mail (SMTP implementation)</li>
 <li>.NET Core port of Google's HTML Compressor</li>
 </ul>`,
-        ["C#", ".NET Core", "SQL Server", "Entity Framework Core"]));
+        ["C#", ".NET Core", "SQL Server", "Entity Framework Core"],
+        null,
+        "netcore"));
 
     this.experiences.push(
       new Experience(
@@ -127,7 +131,7 @@ export class AppComponent {
         "2014 - 2015",
         `
         <ul>
-<li>An MVC5/Angular JS based, HTML5 web application (in development but can demonstrate if needed)</li>
+<li>An MVC5/Angular JS based, HTML5 web application (no longer available)</li>
 <li>Web API based backend for above web site using Entity Framework 6, Code First and SQL Server</li>
 <li>Corresponding phone applications for Android, iPhone and Windows Phone</li>
 <li>An entirely portable C#.NET based image manipulation library with support for Windows (including ASP.NET), Windows Phone, iOS, Android</li>
@@ -343,5 +347,15 @@ export class AppComponent {
       this.themeName = "Dark";
     }
     body.className = this.themeName.toLowerCase();
+  }
+  ngOnInit() {
+    this.route.fragment.subscribe(fragment => {
+      setTimeout(() => {
+        let elm = document.getElementById(fragment);
+        if (elm) {
+          elm.scrollIntoView();
+        }
+      }, 1000);
+    });
   }
 }

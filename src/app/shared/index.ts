@@ -43,7 +43,8 @@ export class Experience {
         public fromTo: string,
         public description: string | ComponentType<any>,
         public skills?: Array<string>,
-        public reference?: ExperienceReference) {
+        public reference?: ExperienceReference,
+        public id?: string) {
         this.type = type;
         this.durationInMonths = durationInMonths;
         this.endYear = endYear;
