@@ -42,6 +42,8 @@ export class AppComponent implements OnInit {
     this.keySummaries.push(new KeySummary(".NET Core (C#)", "4 years (since beta)"));
     this.keySummaries.push(new KeySummary("Angular2+", "3 years (since beta)"));
     this.keySummaries.push(new KeySummary("AngularJS", "3 years"));
+    this.keySummaries.push(new KeySummary("NativeScript", "3 years"));
+    this.keySummaries.push(new KeySummary("Xamarin", "2 years"));
     this.keySummaries.push(new KeySummary("ASP.NET MVC", "6 years"));
     this.keySummaries.push(new KeySummary("Azure", "6 years"));
     this.keySummaries.push(new KeySummary("SQL Server", "15 years"));
