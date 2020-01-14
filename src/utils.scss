@@ -44,6 +44,12 @@ body {
 
 $print-body-margin: 20px;
 @media print {
+  .this-cv {
+    display: none;
+  }
+  .first-paragraph {
+    margin-top: 0;
+  }
   .cv-body {
     padding: 0;
   }
