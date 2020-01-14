@@ -20,34 +20,38 @@ import { SelfEmploymentComponent } from './self-employment/self-employment.compo
 import { PortalModule } from '@angular/cdk/portal';
 import { HighlightModule } from 'ngx-highlightjs';
 import { HazceptionComponent } from './hazception/hazception.component';
+import { IsiteComponent } from './isite/isite.component';
  
 @NgModule({
-  imports: [
-    BrowserModule,
-    MatCardModule,
-    MatIconModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    PortalModule,
-    HighlightModule,
-    MatSlideToggleModule
-  ],
-  declarations: [
-    AppComponent,
-    WorkExperienceComponent,
-    EducationComponent,
-    SkillComponent,
-    KeySkillsComponent,
-    TestimonialComponent,
-    ImportantSkillsPipe,
-    OrderByExperiencePipe,
-    PortfolioItemComponent,
-    SocialsComponent,
-    ProfileImageComponent,
-    SelfEmploymentComponent,
-    HazceptionComponent
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+   imports: [
+      BrowserModule,
+      MatCardModule,
+      MatIconModule,
+      AppRoutingModule,
+      BrowserAnimationsModule,
+      PortalModule,
+      HighlightModule,
+      MatSlideToggleModule
+   ],
+   declarations: [
+      AppComponent,
+      WorkExperienceComponent,
+      EducationComponent,
+      SkillComponent,
+      KeySkillsComponent,
+      TestimonialComponent,
+      ImportantSkillsPipe,
+      OrderByExperiencePipe,
+      PortfolioItemComponent,
+      SocialsComponent,
+      ProfileImageComponent,
+      SelfEmploymentComponent,
+      HazceptionComponent,
+      IsiteComponent
+   ],
+   providers: [],
+   bootstrap: [
+      AppComponent
+   ]
 })
 export class AppModule { }

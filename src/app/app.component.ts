@@ -1,3 +1,4 @@
+import { IsiteComponent as ISiteComponent } from './isite/isite.component';
 import { Component, Pipe, Injectable, PipeTransform, Inject, OnInit, AfterViewChecked, AfterContentInit } from '@angular/core';
 import { Experience, Skill, Testimonial, PortfolioItem, Social, ExperienceType, ExperienceReference, KeySummary } from "./shared";
 import { SelfEmploymentComponent } from './self-employment/self-employment.component';
@@ -76,6 +77,20 @@ export class AppComponent implements OnInit {
     this.experiences.push(
       new Experience(
         ExperienceType.Contract,
+        31,
+        2017,
+        "i-site",
+        null,
+        "Remote Working",
+        "Developer and architect",
+        "May 2017 - December 2019",
+        ISiteComponent,
+        ["C#", ".NET", ".NET Core", "Angular2", "Azure", "Code First", "MVC5", "Entity Framework Core", "BDD", "TDD", "SOLID", "REST", "Material Design", "NativeScript", " Mobile", "C# 4.0", "ASP.NET", "SQL Server", "XHTML", "CSS", "JavaScript", "LINQ"],
+        new ExperienceReference("Can be provided upon request")));
+
+    this.experiences.push(
+      new Experience(
+        ExperienceType.Contract,
         null,
         2017,
         "Self-employed (Brandless Limited)",
@@ -97,7 +112,8 @@ export class AppComponent implements OnInit {
         "Developer and architect",
         "December 2015 - December 2016",
         HazceptionComponent,
-        ["C#", ".NET", ".NET Core", "Angular2", "AngularJS", "Azure", "Code First", "MVC5", "Entity Framework Core", "BDD", "TDD", "SOLID", "REST", "Bootstrap", "Xamarin", " Mobile", "C# 4.0", "ASP.NET", "SQL Server", "XHTML", "CSS", "JavaScript", "jQuery", "LINQ"]));
+        ["C#", ".NET", ".NET Core", "Angular2", "AngularJS", "Azure", "Code First", "MVC5", "Entity Framework Core", "BDD", "TDD", "SOLID", "REST", "Bootstrap", "Xamarin", " Mobile", "C# 4.0", "ASP.NET", "SQL Server", "XHTML", "CSS", "JavaScript", "jQuery", "LINQ"],
+        new ExperienceReference("Simon Walker", "+44 (0) 7983 497008")));
 
     this.experiences.push(
       new Experience(
