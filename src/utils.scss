@@ -151,6 +151,9 @@ mat-icon {
   }
 }
 
+.misc-skills {
+  margin: 1em 0;
+}
 .misc-skills h4 {
   color: $foreground-color;
   margin-bottom: 0;
@@ -168,8 +171,9 @@ mat-icon {
 }
 
 .business-skill-tag {
-  background-color: darken($primary-color, 15%);
-  border: 1px solid darken($primary-color, 20%);
+  background-color: if($is-dark-theme, darken($primary-color, 15%), primary-color());
+  border: 1px solid if($is-dark-theme, darken($primary-color, 25%), darken(primary-color(), 5%));
+  color: if($is-dark-theme, $foreground-color, $background-color);
   // color: $background-color;
 }
 
