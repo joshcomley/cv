@@ -93,6 +93,20 @@ export class AppComponent implements OnInit {
     this.experiences.push(
       new Experience(
         ExperienceType.Contract,
+        12,
+        2016,
+        "Hazception Limited",
+        null,
+        "Remote Working",
+        "Developer and architect",
+        "December 2015 - December 2016",
+        HazceptionComponent,
+        ["C#", ".NET", ".NET Core", "Angular2", "AngularJS", "Azure", "Code First", "MVC5", "Entity Framework Core", "BDD", "TDD", "SOLID", "REST", "Bootstrap", "Xamarin", " Mobile", "C# 4.0", "ASP.NET", "SQL Server", "XHTML", "CSS", "JavaScript", "jQuery", "LINQ"],
+        new ExperienceReference("Simon Walker", "+44 (0) 7983 497008")));
+
+    this.experiences.push(
+      new Experience(
+        ExperienceType.Contract,
         null,
         null,
         "TypeSharp",
@@ -124,71 +138,35 @@ export class AppComponent implements OnInit {
       new Experience(
         ExperienceType.Contract,
         null,
-        2017,
+        null,
         "Self-employed (Brandless Limited)",
         null,
         "Remote Working",
         "Developer and architect",
-        "March 2017 - now",
+        "Ongoing",
         SelfEmploymentComponent,
         ["C#", ".NET", ".NET Core", "Angular2-9", "Azure", "Code First", "MVC5", "Entity Framework Core", "BDD", "TDD", "SOLID", "REST", " Mobile", "C# 4.0", "ASP.NET", "SQL Server", "XHTML", "CSS", "JavaScript", "LINQ"]));
 
-    this.experiences.push(
-      new Experience(
-        ExperienceType.Contract,
-        12,
-        2016,
-        "Hazception Limited",
-        null,
-        "Remote Working",
-        "Developer and architect",
-        "December 2015 - December 2016",
-        HazceptionComponent,
-        ["C#", ".NET", ".NET Core", "Angular2", "AngularJS", "Azure", "Code First", "MVC5", "Entity Framework Core", "BDD", "TDD", "SOLID", "REST", "Bootstrap", "Xamarin", " Mobile", "C# 4.0", "ASP.NET", "SQL Server", "XHTML", "CSS", "JavaScript", "jQuery", "LINQ"],
-        new ExperienceReference("Simon Walker", "+44 (0) 7983 497008")));
-
-    this.experiences.push(
-      new Experience(
-        ExperienceType.SelfEmployed,
-        12,
-        2015,
-        "Self-employed (Brandless Limited)",
-        "As part of .NET Core development, porting and creating world-first .NET Core libraries.",
-        "Remote Working",
-        "Developer and architect",
-        "2016",
-        `<ul>
-        <li>Implementation of custom and comprehensive SQL Server based security later in Microsoft's Entity Framework Core</li>
-        <li>Bug fixes submitted for Microsoft's Entity Framework Core</li>
-<li>.NET Core port of Microsoft's .NET OData implementation</li>
-<li>.NET Core port of SendGrid mailing API</li>
-<li>.NET Core port of Microsoft's System.Net.Mail (SMTP implementation)</li>
-<li>.NET Core port of Google's HTML Compressor</li>
-</ul>`,
-        ["C#", ".NET Core", "SQL Server", "Entity Framework Core"],
-        null,
-        "netcore"));
-
-    this.experiences.push(
-      new Experience(
-        ExperienceType.SelfEmployed,
-        12,
-        2015,
-        "Self-employed (Brandless Limited)",
-        "Developing a suite of portable technologies and applications for my own business.",
-        "Remote Working",
-        "Developer and architect",
-        "2014 - 2015",
-        `
-        <ul>
-<li>An MVC5/Angular JS based, HTML5 web application (no longer available)</li>
-<li>Web API based backend for above web site using Entity Framework 6, Code First and SQL Server</li>
-<li>Corresponding phone applications for Android, iPhone and Windows Phone</li>
-<li>An entirely portable C#.NET based image manipulation library with support for Windows (including ASP.NET), Windows Phone, iOS, Android</li>
-<li>Portable C#.NET based audio playback, recording, streaming, decoding and effects library for Windows, Windows Phone, iOS and Android</li>
-<li>A C# to C# serializer (it’s more useful than it sounds!)</li>
-</ul>`,
-        ["C#", ".NET", "Angular2", "AngularJS", "Azure", "Code First", "MVC5", "Entity Framework 6", "BDD", "TDD", "SOLID", "REST", "Bootstrap", "Xamarin", " Mobile", "C# 4.0", "ASP.NET", "SQL Server", "XHTML", "CSS", "JavaScript", "jQuery", "LINQ"]));
+    //     this.experiences.push(
+    //       new Experience(
+    //         ExperienceType.SelfEmployed,
+    //         12,
+    //         2015,
+    //         "Self-employed (Brandless Limited)",
+    //         "Developing a suite of portable technologies and applications for my own business.",
+    //         "Remote Working",
+    //         "Developer and architect",
+    //         "2014 - 2015",
+    //         `
+    //         <ul>
+    // <li>An MVC5/Angular JS based, HTML5 web application (no longer available)</li>
+    // <li>Web API based backend for above web site using Entity Framework 6, Code First and SQL Server</li>
+    // <li>Corresponding phone applications for Android, iPhone and Windows Phone</li>
+    // <li>An entirely portable C#.NET based image manipulation library with support for Windows (including ASP.NET), Windows Phone, iOS, Android</li>
+    // <li>Portable C#.NET based audio playback, recording, streaming, decoding and effects library for Windows, Windows Phone, iOS and Android</li>
+    // <li>A C# to C# serializer (it’s more useful than it sounds!)</li>
+    // </ul>`,
+    //         ["C#", ".NET", "Angular2", "AngularJS", "Azure", "Code First", "MVC5", "Entity Framework 6", "BDD", "TDD", "SOLID", "REST", "Bootstrap", "Xamarin", " Mobile", "C# 4.0", "ASP.NET", "SQL Server", "XHTML", "CSS", "JavaScript", "jQuery", "LINQ"]));
 
     this.experiences.push(
       new Experience(
