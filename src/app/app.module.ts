@@ -19,8 +19,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SelfEmploymentComponent } from './self-employment/self-employment.component';
 import { PortalModule } from '@angular/cdk/portal';
 import { HighlightModule } from 'ngx-highlightjs';
-import { HazceptionComponent } from './hazception/hazception.component';
-import { IsiteComponent } from './isite/isite.component';
+import { HazceptionComponent } from './projects/hazception/hazception.component';
+import { IsiteComponent } from './projects/isite/isite.component';
+import { IqlComponent } from './projects/iql/iql.component';
+import { TypeSharpComponent } from './projects/typesharp/typesharp.component';
  
 @NgModule({
    imports: [
@@ -47,7 +49,9 @@ import { IsiteComponent } from './isite/isite.component';
       ProfileImageComponent,
       SelfEmploymentComponent,
       HazceptionComponent,
-      IsiteComponent
+      IsiteComponent,
+      IqlComponent,
+      TypeSharpComponent
    ],
    providers: [],
    bootstrap: [

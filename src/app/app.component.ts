@@ -1,10 +1,12 @@
-import { IsiteComponent as ISiteComponent } from './isite/isite.component';
-import { Component, Pipe, Injectable, PipeTransform, Inject, OnInit, AfterViewChecked, AfterContentInit } from '@angular/core';
-import { Experience, Skill, Testimonial, PortfolioItem, Social, ExperienceType, ExperienceReference, KeySummary } from "./shared";
-import { SelfEmploymentComponent } from './self-employment/self-employment.component';
-import { HazceptionComponent } from './hazception/hazception.component';
 import { DOCUMENT } from '@angular/common';
+import { Component, Inject, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { HazceptionComponent } from './projects/hazception/hazception.component';
+import { IqlComponent } from './projects/iql/iql.component';
+import { IsiteComponent as ISiteComponent } from './projects/isite/isite.component';
+import { SelfEmploymentComponent } from './self-employment/self-employment.component';
+import { Experience, ExperienceReference, ExperienceType, KeySummary, PortfolioItem, Skill, Social, Testimonial } from "./shared";
+import { TypeSharpComponent } from './projects/typesharp/typesharp.component';
 
 @Component({
   selector: 'app-root',
@@ -87,6 +89,36 @@ export class AppComponent implements OnInit {
         ISiteComponent,
         ["C#", ".NET", ".NET Core", "Angular2", "Azure", "Code First", "MVC5", "Entity Framework Core", "BDD", "TDD", "SOLID", "REST", "Material Design", "NativeScript", " Mobile", "C# 4.0", "ASP.NET", "SQL Server", "XHTML", "CSS", "JavaScript", "LINQ"],
         new ExperienceReference("Can be provided upon request")));
+
+    this.experiences.push(
+      new Experience(
+        ExperienceType.Contract,
+        null,
+        null,
+        "TypeSharp",
+        null,
+        "Remote Working",
+        "Founder, developer and architect",
+        "Ongoing",
+        TypeSharpComponent,
+        ["C#", ".NET", ".NET Core", "Angular2", "Azure", "Code First", "MVC5", "Entity Framework Core", "BDD", "TDD", "SOLID", "REST", "Material Design", "NativeScript", " Mobile", "C# 4.0", "ASP.NET", "SQL Server", "XHTML", "CSS", "JavaScript", "LINQ"],
+        null,
+        "typesharp"));
+
+    this.experiences.push(
+      new Experience(
+        ExperienceType.Contract,
+        null,
+        null,
+        "IQL",
+        null,
+        "Remote Working",
+        "Founder, developer and architect",
+        "Ongoing",
+        IqlComponent,
+        ["C#", ".NET", ".NET Core", "Angular2", "Azure", "Code First", "MVC5", "Entity Framework Core", "BDD", "TDD", "SOLID", "REST", "Material Design", "NativeScript", " Mobile", "C# 4.0", "ASP.NET", "SQL Server", "XHTML", "CSS", "JavaScript", "LINQ"],
+        null,
+        "iql"));
 
     this.experiences.push(
       new Experience(

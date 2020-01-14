@@ -8,19 +8,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 })
 export class SelfEmploymentComponent implements OnInit {
   public languages = ["typescript"];
-  public code = `let todos = 
-  await db.Todos
-    .Where(todo => todo.Deadline < new Date() && todo.Name.includes("front end"))
-    .OrderBy(todo => todo.EstimatedDays)
-    .ToIqlAsync();
-`;
-public code2 = `let todo = await db.Todos.GetWithKeyAsync(1234);
-todo.Name = "A new name";
-let result = await db.SaveChangesAsync();
-if(result.Success) {
-  // ...
-}
-`;
+
 public docNet = `{{foreach:posts post}}
 Author: {{post.author}} {{image: source="post.author.photo" maxWidth="'1in'" maxHeight="'1in'" }}
 {{post.text}}
