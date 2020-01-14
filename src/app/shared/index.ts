@@ -43,6 +43,7 @@ export class Experience {
         public fromTo: string,
         public description: string | ComponentType<any>,
         public skills?: Array<string>,
+        public businessSkills?: Array<string>,
         public reference?: ExperienceReference,
         public id?: string) {
         this.type = type;

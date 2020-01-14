@@ -21,8 +21,10 @@
   @return mat-color(map-get($theme, foreground), base);
 }
 
+$primary-color: primary-color();
+$accent-color: accent-color();
 $background-color: background-color();
-$fore-color: foreground-color();
+$foreground-color: foreground-color();
 $is-dark-theme: map-get($theme, is-dark);
 
 /* You can add global styles to this file, and also import other style files */
@@ -149,13 +151,26 @@ mat-icon {
   }
 }
 
+.misc-skills h4 {
+  color: $foreground-color;
+  margin-bottom: 0;
+  display: flex;
+  align-items: center;
+}
+
 .skill-tag {
   padding: 3px;
   border-radius: 2px;
   display: inline-block;
   border: 1px solid darken($background-color, 3%);
   background-color: darken($background-color, 1.5%);
-  color: $fore-color;
+  color: $foreground-color;
+}
+
+.business-skill-tag {
+  background-color: darken($primary-color, 15%);
+  border: 1px solid darken($primary-color, 20%);
+  // color: $background-color;
 }
 
 app-work-experience {

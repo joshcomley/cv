@@ -27,7 +27,16 @@
 			</div>
 		</div>
 		<div class="misc-skills">
+			<h4>
+				<mat-icon>keyboard</mat-icon>&nbsp;Tech stack
+			</h4>
 			<span *ngFor="let skill of experience.skills" class="skill-tag">{{skill}}</span>
+		</div>
+		<div class="misc-skills">
+			<h4>
+				<mat-icon>business_center</mat-icon>&nbsp;Business skills
+			</h4>
+			<span *ngFor="let skill of experience.businessSkills" class="skill-tag business-skill-tag">{{skill}}</span>
 		</div>
 		<div class="job-ref job-desc" *ngIf="experience.reference">
 			<h4>Reference</h4>
