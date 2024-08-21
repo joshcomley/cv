@@ -4982,15 +4982,10 @@ hasown@^2.0.0, hasown@^2.0.2:
   dependencies:
     function-bind "^1.1.2"
 
-highlight.js@*:
-  version "9.16.2"
-  resolved "https://registry.yarnpkg.com/highlight.js/-/highlight.js-9.16.2.tgz#68368d039ffe1c6211bcc07e483daf95de3e403e"
-  integrity sha512-feMUrVLZvjy0oC7FVJQcSQRqbBq9kwqnYE4+Kj9ZjbHh3g+BisiPgF49NyQbVLNdrL/qqZr3Ca9yOKwgn2i/tw==
-
-highlightjs-line-numbers.js@*:
-  version "2.7.0"
-  resolved "https://registry.yarnpkg.com/highlightjs-line-numbers.js/-/highlightjs-line-numbers.js-2.7.0.tgz#b202f7dc547cb9ab64d8b3ad571d834817815bdf"
-  integrity sha512-2kgZkfGy3TB6rF1o1XJtUThDyraLAFd6iiAIE1MEH89om8VwyHsal6BBnIOP2yOuq2TCuuGd0YD6aGHa6iq3/g==
+highlight.js@^11.9.0:
+  version "11.10.0"
+  resolved "https://registry.yarnpkg.com/highlight.js/-/highlight.js-11.10.0.tgz#6e3600dc4b33d6dc23d5bd94fbf72405f5892b92"
+  integrity sha512-SYVnVFswQER+zu1laSya563s+F8VDGt7o35d4utbamowvUNLLMovFqwCLSocpZTz3MgaSRA1IbqRWZv97dtErQ==
 
 hosted-git-info@^7.0.0:
   version "7.0.2"
@@ -6188,14 +6183,13 @@ neo-async@^2.6.2:
   resolved "https://registry.yarnpkg.com/neo-async/-/neo-async-2.6.2.tgz#b4aafb93e3aeb2d8174ca53cf163ab7d7308305f"
   integrity sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==
 
-ngx-highlightjs@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/ngx-highlightjs/-/ngx-highlightjs-4.0.0.tgz#22312519aea132cb7ca1e2a7532a0c8843a2288f"
-  integrity sha512-9RuY7hCtQdRtz3Auo5Bv858IlJm16zcTD4HBtvj8jrqGf0nQBgE/PDFmUsYSRTkC1vDvJvPs0LQbXN1VuVtjYA==
+ngx-highlightjs@^12.0.0:
+  version "12.0.0"
+  resolved "https://registry.yarnpkg.com/ngx-highlightjs/-/ngx-highlightjs-12.0.0.tgz#0cc2d3503f7ef9bc25b70cf4c4291e27134aff97"
+  integrity sha512-1lSUv3hNpriHewwe8zz8eMX6q/Tcq1ZCsJ1GitBsr86y39e+q4U/s8LKE7rvK6SVAbQlUuopdbbKWR0zjihjLg==
   dependencies:
-    highlight.js "*"
-    highlightjs-line-numbers.js "*"
-    tslib "^1.9.0"
+    highlight.js "^11.9.0"
+    tslib "^2.3.0"
 
 nice-napi@^1.0.2:
   version "1.0.2"
