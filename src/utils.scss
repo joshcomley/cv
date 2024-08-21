@@ -1,3 +1,4 @@
+@use '~@angular/material' as mat;
 @import "~highlight.js/styles/a11y-dark.css";
 @import "~@fortawesome/fontawesome-free/css/fontawesome.css";
 @import "~@fortawesome/fontawesome-free/css/solid.css";
@@ -6,19 +7,19 @@
 @import "./md";
 
 @function primary-color() {
-  @return mat-color(map-get($theme, primary));
+  @return mat.get-color-from-palette(map-get($theme, primary));
 }
 
 @function accent-color() {
-  @return mat-color(map-get($theme, accent));
+  @return mat.get-color-from-palette(map-get($theme, accent));
 }
 
 @function background-color() {
-  @return mat-color(map-get($theme, background), background);
+  @return mat.get-color-from-palette(map-get($theme, background), background);
 }
 
 @function foreground-color() {
-  @return mat-color(map-get($theme, foreground), base);
+  @return mat.get-color-from-palette(map-get($theme, foreground), base);
 }
 
 $primary-color: primary-color();

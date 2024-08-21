@@ -1,17 +1,18 @@
+@use '~@angular/material' as mat;
 @import "~@angular/material/theming";
 // Include non-theme styles for core.
-@include mat-core();
+@include mat.core();
 
-$primary: mat-palette($mat-cyan);
-$accent: mat-palette($mat-deep-orange);
-$theme: mat-dark-theme($primary, $accent);
-@include angular-material-theme($theme);
+$primary: mat.define-palette(mat.$cyan-palette);
+$accent: mat.define-palette(mat.$deep-orange-palette);
+$theme: mat.define-dark-theme($primary, $accent);
+@include mat.all-component-themes($theme);
 @import "./utils";
 
 .light {
-  $primary: mat-palette($mat-cyan);
-  $accent: mat-palette($mat-deep-orange);
-  $theme: mat-light-theme($primary, $accent);
-  @include angular-material-theme($theme);
+  $primary: mat.define-palette(mat.$cyan-palette);
+  $accent: mat.define-palette(mat.$deep-orange-palette);
+  $theme: mat.define-light-theme($primary, $accent);
+  @include mat.all-component-themes($theme);
   @import "./utils";
 }
