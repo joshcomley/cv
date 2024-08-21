@@ -12,8 +12,8 @@ import { PortfolioItemComponent } from './portfolio-item/portfolio-item.componen
 import { SocialsComponent } from './socials/socials.component';
 import { ProfileImageComponent } from './profile-image/profile-image.component';
 import { ImportantSkillsPipe, OrderByExperiencePipe } from './pipes';
-import { MatCardModule } from '@angular/material/card';
-import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatLegacyCardModule as MatCardModule } from '@angular/material/legacy-card';
+import { MatLegacySlideToggleModule as MatSlideToggleModule } from '@angular/material/legacy-slide-toggle';
 import { MatIconModule } from '@angular/material/icon';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SelfEmploymentComponent } from './self-employment/self-employment.component';
