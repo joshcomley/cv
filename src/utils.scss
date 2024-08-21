@@ -7,19 +7,19 @@
 @import "./md";
 
 @function primary-color() {
-  @return mat.get-color-from-palette(map-get($theme, primary));
+  @return mat.m2-get-color-from-palette(map-get($theme, primary));
 }
 
 @function accent-color() {
-  @return mat.get-color-from-palette(map-get($theme, accent));
+  @return mat.m2-get-color-from-palette(map-get($theme, accent));
 }
 
 @function background-color() {
-  @return mat.get-color-from-palette(map-get($theme, background), background);
+  @return mat.m2-get-color-from-palette(map-get($theme, background), background);
 }
 
 @function foreground-color() {
-  @return mat.get-color-from-palette(map-get($theme, foreground), base);
+  @return mat.m2-get-color-from-palette(map-get($theme, foreground), base);
 }
 
 $primary-color: primary-color();
