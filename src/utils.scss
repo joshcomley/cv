@@ -1,33 +1,33 @@
 @use '@angular/material' as mat;
-@import "highlight.js/styles/a11y-dark.css";
-@import "@fortawesome/fontawesome-free/css/fontawesome.css";
-@import "@fortawesome/fontawesome-free/css/solid.css";
-@import "@fortawesome/fontawesome-free/css/regular.css";
-@import "@fortawesome/fontawesome-free/css/brands.css";
+// @use "@fortawesome/fontawesome-free/css/fontawesome.css";
+// @use "@fortawesome/fontawesome-free/css/solid.css";
+// @use "@fortawesome/fontawesome-free/css/regular.css";
+// @use "@fortawesome/fontawesome-free/css/brands.css";
+// @use "highlight.js/styles/a11y-dark.css";
 @import "./md";
 
 @function primary-color() {
-  @return mat.m2-get-color-from-palette(map-get($theme, primary));
+  @return mat.m2-get-color-from-palette(map-get($palette, primary), 50);
 }
 
 @function accent-color() {
-  @return mat.m2-get-color-from-palette(map-get($theme, accent));
+  @return mat.m2-get-color-from-palette(map-get($palette, secondary), 50);
 }
 
 @function background-color() {
-  @return mat.m2-get-color-from-palette(map-get($theme, background), background);
+  @return mat.get-theme-color($theme, background);
 }
 
 @function foreground-color() {
-  @return mat.m2-get-color-from-palette(map-get($theme, foreground), base);
+  @return mat.m2-get-color-from-palette(map-get($palette, foreground), 50);
 }
 
 $primary-color: primary-color();
 $accent-color: accent-color();
 $background-color: background-color();
 $foreground-color: foreground-color();
-$is-dark-theme: map-get($theme, is-dark);
 
+// $is-dark: (map.get($theme, $_internals, theme-type) or light) == dark;
 /* You can add global styles to this file, and also import other style files */
 html {
   font-family: sans-serif;
@@ -36,7 +36,8 @@ html {
 body {
   max-width: 1024px;
   margin: 0 auto;
-  background-color: background-color();
+  // @include mat.core-theme($theme);
+    // background-color: background-color();
 }
 .work-experience-print-hack {
   display: none;
@@ -155,6 +156,7 @@ mat-icon {
 .misc-skills {
   margin: 1em 0;
 }
+
 .misc-skills h4 {
   color: $foreground-color;
   margin-bottom: 0;
