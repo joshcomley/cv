@@ -212,7 +212,7 @@ export class AppComponent implements OnInit {
         "Developer and lead developer on software primarily used in hospitals to aid disease analysis.",
         "London, UK",
         "Developer and architect",
-        "Mar 2010 – April 2013 (became Kaboodle as of March 2011)",
+        "Mar 2010 – April 2013",// (became Kaboodle as of March 2011)
         `<p><i>N.B: Freedman formed a start-up called Kaboodle for their new project. As such although I was at the same office I was technically in a different role and company as of March 2011</i></p>
 <p>Lead developer and product architect a major in house product using C# 3.5/C# 4.0, WCF and MVC</p>
 <p>Freedman is involved with helping multinational companies achieve their global marketing goals. As such, Freedman has undertook a challenge to build a web application to facilitate this, encouraging communication and visualising every aspect of the global marketing process. They envisage a product underpinning the company’s finances in the years to come.</p>

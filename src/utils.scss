@@ -222,3 +222,8 @@ app-work-experience {
   display: grid;
   grid-template-columns: [col] 1fr [col] auto;
 }
+
+.split4 {
+  display: grid;
+  grid-template-columns: [col] 1fr [col] 1fr [col] 1fr [col] auto;
+}

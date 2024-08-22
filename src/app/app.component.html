@@ -123,25 +123,31 @@
           [showPrintHack]="i == 0"
           [attr.id]="experience.id"
           [experience]="experience"
+          [short]="true"
         >
         </app-work-experience>
       </div>
     </section>
 
-    <section
+    <mat-card
       *ngIf="educations.length"
       id="eudcation-section"
       class="education-section section"
+      appearance="outlined"
     >
-      <h2 class="section-title">Education</h2>
-      <div class="row">
-        <app-education
-          *ngFor="let experience of educations"
-          [experience]="experience"
-        >
-        </app-education>
-      </div>
-    </section>
+      <mat-card-header>
+        <mat-card-title> Education </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="row">
+          <app-education
+            *ngFor="let experience of educations"
+            [experience]="experience"
+          >
+          </app-education>
+        </div>
+      </mat-card-content>
+    </mat-card>
 
     <section
       *ngIf="false && skills.length"
@@ -217,8 +223,7 @@
         </app-portfolio-item>
       </div>
     </section>
-
-    <mat-card appearance="outlined">
+    <mat-card appearance="outlined" class="section">
       <mat-card-header>
         <mat-card-title>Get in touch</mat-card-title>
       </mat-card-header>

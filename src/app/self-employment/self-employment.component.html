@@ -1,88 +1,135 @@
 <div class="self-employment">
-    <p>Since 2017 I have been building up a portfolio of products and tools.</p>
-    <!-- <p>As I am my own reference for these works, I
+  <p>Since 2017 I have been building up a portfolio of products and tools.</p>
+  <!-- <p>As I am my own reference for these works, I
         have provided some code examples to demonstrate, and further demos can be made if necessary.</p> -->
 
-    <div class="project-container">
-        <div class="project">
-            <h3>IQL Forms</h3>
-            <p>Using <a href="#iql">IQL</a> as an front-and-back-end ORM, and OData as the pipeline, IQL Forms is a
-                business
-                application generator.</p>
-            <p>It is able to use
-                metadata supplied from IQL about your data structure and configuration and generate web and
-                phone applications dynamically. Information about permissions and validation are processed both in the
-                front
-                end via JavaScript/TypeScript and the back end via .NET.</p>
-            <p>The web applications are generated using Angular, and the mobile
-                applications for iOS and Android using NativeScript combined with Angular and supports:</p>
-            <ul class="service-list">
-                <li><i class="fa fa-check" aria-hidden="true"></i>&nbsp;100% dynamic reporting on anything with export
-                    to
-                    PDF, Word and Excel</li>
-                <li><i class="fa fa-check" aria-hidden="true"></i>&nbsp;Integration with <a href="docnet">DocNet</a> for
-                    customised report templates</li>
-                <li><i class="fa fa-check" aria-hidden="true"></i>&nbsp;File management</li>
-                <li><i class="fa fa-check" aria-hidden="true"></i>&nbsp;Users management</li>
-                <li><i class="fa fa-check" aria-hidden="true"></i>&nbsp;OAuth authentication</li>
-                <li><i class="fa fa-check" aria-hidden="true"></i>&nbsp;Full CRUD</li>
-                <li><i class="fa fa-check" aria-hidden="true"></i>&nbsp;Permissions</li>
-                <li><i class="fa fa-check" aria-hidden="true"></i>&nbsp;Validation</li>
-                <li><i class="fa fa-check" aria-hidden="true"></i>&nbsp;Material Design</li>
-                <li><i class="fa fa-check" aria-hidden="true"></i>&nbsp;Login via text message or password</li>
-                <li><i class="fa fa-check" aria-hidden="true"></i>&nbsp;Web, iOS and Android</li>
-                <li><i class="fa fa-check" aria-hidden="true"></i>&nbsp;Easy developer customisation</li>
-                <li><i class="fa fa-check" aria-hidden="true"></i>&nbsp;Themes</li>
-            </ul>
-            <p>Demo available upon request.</p>
-        </div>
+  <div class="project-container">
+    <div class="project">
+      <h3>IQL Forms</h3>
+      <p>
+        Using <a href="#iql">IQL</a> as an front-and-back-end ORM, and OData as
+        the pipeline, IQL Forms is a business application generator.
+      </p>
+      <p>
+        It is able to use metadata supplied from IQL about your data structure
+        and configuration and generate web and phone applications dynamically.
+        Information about permissions and validation are processed both in the
+        front end via JavaScript/TypeScript and the back end via .NET.
+      </p>
+      <p>
+        The web applications are generated using Angular, and the mobile
+        applications for iOS and Android using NativeScript combined with
+        Angular and supports:
+      </p>
+      <ul class="service-list">
+        <li>
+          <i class="fa fa-check" aria-hidden="true"></i>&nbsp;100% dynamic
+          reporting on anything with export to PDF, Word and Excel
+        </li>
+        <li>
+          <i class="fa fa-check" aria-hidden="true"></i>&nbsp;Integration with
+          <a href="docnet">DocNet</a> for customised report templates
+        </li>
+        <li>
+          <i class="fa fa-check" aria-hidden="true"></i>&nbsp;File management
+        </li>
+        <li>
+          <i class="fa fa-check" aria-hidden="true"></i>&nbsp;Users management
+        </li>
+        <li>
+          <i class="fa fa-check" aria-hidden="true"></i>&nbsp;OAuth
+          authentication
+        </li>
+        <li><i class="fa fa-check" aria-hidden="true"></i>&nbsp;Full CRUD</li>
+        <li><i class="fa fa-check" aria-hidden="true"></i>&nbsp;Permissions</li>
+        <li><i class="fa fa-check" aria-hidden="true"></i>&nbsp;Validation</li>
+        <li>
+          <i class="fa fa-check" aria-hidden="true"></i>&nbsp;Material Design
+        </li>
+        <li>
+          <i class="fa fa-check" aria-hidden="true"></i>&nbsp;Login via text
+          message or password
+        </li>
+        <li>
+          <i class="fa fa-check" aria-hidden="true"></i>&nbsp;Web, iOS and
+          Android
+        </li>
+        <li>
+          <i class="fa fa-check" aria-hidden="true"></i>&nbsp;Easy developer
+          customisation
+        </li>
+        <li><i class="fa fa-check" aria-hidden="true"></i>&nbsp;Themes</li>
+      </ul>
+      <p>Demo available upon request.</p>
     </div>
+  </div>
 
-    <div class="project-container">
-        <div class="project" id="docnet">
-            <h3>DocNet (soon to be open-sourced)</h3>
-            <p>DocNet is a Word document templating tool built in C# and converted to TypeScript via <a
-                    href="#typesharp">TypeSharp</a>.</p>
-            <p>It enables Angular-esque templates to be converted into Word documents and works in .NET, the browser,
-                Node
-                etc.
-            </p>
-            <p>DocNet allows JavaScript queries to be embedded within a word document for templating, which are compiled
-                and
-                executed by the dynamic JavaScript engine in <a href="#iql">IQL</a></p>
-            <p>The following code demonstrates usage which can be written into a Word document via Microsoft Word.</p>
-            <p>It will iterate through a list of blog posts printing out the author,
-                their photo. Then for fans of the blog post (it's a demo!) it will show their location on a map which
-                becomes embedded within the word document with a red pin if their location has a certain status
-                otherwise a
-                green pin. Convoluted, but demos the abilities of the tool!</p>
-            <pre><code [highlight]="docNet" [language]="languages"></code></pre>
-        </div>
+  <div class="project-container">
+    <div class="project" id="docnet">
+      <h3>DocNet (soon to be open-sourced)</h3>
+      <p>
+        DocNet is a Word document templating tool built in C# and converted to
+        TypeScript via <a href="#typesharp">TypeSharp</a>.
+      </p>
+      <ng-content *ngIf="!short">
+        <p>
+          It enables Angular-esque templates to be converted into Word documents
+          and works in .NET, the browser, Node etc.
+        </p>
+        <p>
+          DocNet allows JavaScript queries to be embedded within a word document
+          for templating, which are compiled and executed by the dynamic
+          JavaScript engine in <a href="#iql">IQL</a>
+        </p>
+        <p>
+          The following code demonstrates usage which can be written into a Word
+          document via Microsoft Word.
+        </p>
+        <p>
+          It will iterate through a list of blog posts printing out the author,
+          their photo. Then for fans of the blog post (it's a demo!) it will
+          show their location on a map which becomes embedded within the word
+          document with a red pin if their location has a certain status
+          otherwise a green pin. Convoluted, but demos the abilities of the
+          tool!
+        </p>
+        <pre><code [highlight]="docNet" [language]="languages"></code></pre>
+      </ng-content>
     </div>
+  </div>
 
-    <div class="project-container">
-        <div class="project">
-            <h3>TsBeautify (open-source)</h3>
-            <p>TsBeautify (<a href="https://github.com/joshcomley/tsbeautify">github.com/joshcomley/tsbeautify</a>) is
-                an
-                open-source code beautifier written in C# and converted to TypeScript via <a
-                    href="#typesharp">TypeSharp</a>. This also runs in .NET,
-                Node, web browsers and on phones.</p>
-        </div>
+  <div class="project-container">
+    <div class="project">
+      <h3>TsBeautify (open-source)</h3>
+      <p>
+        TsBeautify (<a href="https://github.com/joshcomley/tsbeautify"
+          >github.com/joshcomley/tsbeautify</a
+        >) is an open-source code beautifier written in C# and converted to
+        TypeScript via <a href="#typesharp">TypeSharp</a>. This also runs in
+        .NET, Node, web browsers and on phones.
+      </p>
     </div>
+  </div>
 
-    <div class="project-container">
-        <div class="project">
-            <h3>As part of .NET Core development, porting and creating world-first .NET Core libraries.</h3>
-            <ul>
-                <li>Implementation of custom and comprehensive SQL Server based security later in Microsoft's Entity
-                    Framework Core</li>
-                <li>Bug fixes submitted for Microsoft's Entity Framework Core</li>
-                <li>.NET Core port of Microsoft's .NET OData implementation</li>
-                <li>.NET Core port of SendGrid mailing API</li>
-                <li>.NET Core port of Microsoft's System.Net.Mail (SMTP implementation)</li>
-                <li>.NET Core port of Google's HTML Compressor</li>
-            </ul>
-        </div>
+  <div class="project-container">
+    <div class="project">
+      <h3>
+        As part of .NET Core development, porting and creating world-first .NET
+        Core libraries.
+      </h3>
+      <ul>
+        <li>
+          Implementation of custom and comprehensive SQL Server based security
+          later in Microsoft's Entity Framework Core
+        </li>
+        <li>Bug fixes submitted for Microsoft's Entity Framework Core</li>
+        <li>.NET Core port of Microsoft's .NET OData implementation</li>
+        <li>.NET Core port of SendGrid mailing API</li>
+        <li>
+          .NET Core port of Microsoft's System.Net.Mail (SMTP implementation)
+        </li>
+        <li>.NET Core port of Google's HTML Compressor</li>
+      </ul>
     </div>
+  </div>
 </div>

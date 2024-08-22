@@ -19,11 +19,30 @@
 
 .work-place {
   margin-bottom: 1em;
+  &.short {
+    margin-bottom: 0em;
+    display: inline-flex;
+    @media (max-width: 800px) {
+      display: inline-grid;
+      grid-template-columns: auto auto;
+      grid-template-rows: auto auto;
+    }
+    gap: 20px;
+    align-items: center;
+    > * {
+      display: inline-grid;
+      grid-template-columns: auto auto;
+      align-items: center;
+      justify-content: flex-start;
+    }
+  }
   .place {
     margin: 0;
   }
-  display: grid;
-  grid-template-columns: [col] 1fr [col] auto;
+}
+
+.work-duration {
+  align-items: center;
 }
 
 .job-ref {
