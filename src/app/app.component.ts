@@ -1,4 +1,4 @@
-import { DOCUMENT } from '@angular/common';
+import { DOCUMENT, NgIf, NgFor } from '@angular/common';
 import { Component, Inject, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HazceptionComponent } from './projects/hazception/hazception.component';
@@ -7,11 +7,22 @@ import { IsiteComponent as ISiteComponent } from './projects/isite/isite.compone
 import { SelfEmploymentComponent } from './self-employment/self-employment.component';
 import { Experience, ExperienceReference, ExperienceType, KeySummary, PortfolioItem, Skill, Social, Testimonial } from "./shared";
 import { TypeSharpComponent } from './projects/typesharp/typesharp.component';
+import { MatSlideToggle } from '@angular/material/slide-toggle';
+import { MatCard, MatCardContent, MatCardHeader, MatCardTitle } from '@angular/material/card';
+import { SocialsComponent } from './socials/socials.component';
+import { WorkExperienceComponent } from './work-experience/work-experience.component';
+import { EducationComponent } from './education/education.component';
+import { SkillComponent } from './skill/skill.component';
+import { TestimonialComponent } from './testimonial/testimonial.component';
+import { PortfolioItemComponent } from './portfolio-item/portfolio-item.component';
+import { ImportantSkillsPipe, OrderByExperiencePipe } from './pipes';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.scss'],
+    standalone: true,
+    imports: [MatSlideToggle, MatCard, MatCardContent, NgIf, NgFor, SocialsComponent, WorkExperienceComponent, EducationComponent, SkillComponent, TestimonialComponent, PortfolioItemComponent, MatCardHeader, MatCardTitle, ImportantSkillsPipe, OrderByExperiencePipe]
 })
 export class AppComponent implements OnInit {
   themeName: string = "Dark";
