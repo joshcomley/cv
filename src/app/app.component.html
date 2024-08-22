@@ -90,6 +90,7 @@
       <div id="page-nav-wrapper" class="page-nav-wrapper text-center">
         <div class="container">
           <ul id="page-nav" class="nav page-nav list-inline">
+            <li>Jump to:</li>
             <li *ngIf="experiences.length">
               <a class="scrollto" href="#experiences-section">Experience</a>
             </li>
@@ -117,13 +118,22 @@
       class="experiences-section section"
     >
       <h2 class="section-title work-experience">Work Experience</h2>
+      <mat-button-toggle-group
+        name="fontStyle"
+        id="detail-toggle"
+        aria-label="Font Style"
+        [(value)]="short"
+      >
+        <mat-button-toggle [value]="true">Short</mat-button-toggle>
+        <mat-button-toggle [value]="false">Gory detail</mat-button-toggle>
+      </mat-button-toggle-group>
       <div class="timeline">
         <app-work-experience
           *ngFor="let experience of experiences; let i = index"
           [showPrintHack]="i == 0"
           [attr.id]="experience.id"
           [experience]="experience"
-          [short]="true"
+          [short]="short()"
         >
         </app-work-experience>
       </div>

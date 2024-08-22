@@ -1,5 +1,5 @@
-@use 'sass:map';
-@use '@angular/material' as mat;
+@use "sass:map";
+@use "@angular/material" as mat;
 // @use "@fortawesome/fontawesome-free/css/fontawesome.css";
 // @use "@fortawesome/fontawesome-free/css/solid.css";
 // @use "@fortawesome/fontawesome-free/css/regular.css";
@@ -11,8 +11,12 @@
   @return mat.m2-get-color-from-palette(map-get($palette, primary), 70);
 }
 
-@function accent-color() {
-  @return mat.get-theme-color($theme, tertiary);
+@function accent-color($hue: null) {
+  @return if(
+    $hue == null,
+    mat.get-theme-color($theme, tertiary),
+    mat.get-theme-color($theme, tertiary, $hue)
+  );
 }
 
 @function background-color() {
@@ -38,7 +42,7 @@ body {
   max-width: 1024px;
   margin: 0 auto;
   // @include mat.core-theme($theme);
-    // background-color: background-color();
+  // background-color: background-color();
 }
 .work-experience-print-hack {
   display: none;
@@ -49,18 +53,17 @@ body {
 
 $print-body-margin: 20px;
 @media print {
+  .save-as-pdf,
+  #theme-toggle mat-slide-toggle,
+  #detail-toggle,
   .this-cv {
-    display: none;
+    display: none !important;
   }
   .first-paragraph {
     margin-top: 0;
   }
   .cv-body {
     padding: 0;
-  }
-  .save-as-pdf,
-  #theme-toggle mat-slide-toggle {
-    display: none !important;
   }
   body {
     margin-left: $print-body-margin;
@@ -168,15 +171,15 @@ mat-icon {
   display: inline-block;
   border: 1px solid darken($background-color, 3%);
   background-color: mat.get-theme-color($theme, neutral, if($is-dark, 30, 90));
+  -webkit-print-color-adjust: exact !important;
+  print-color-adjust: exact !important;
   // background-color: darken($background-color, 1.5%);
   // color: $foreground-color;
 }
 
 .business-skill-tag {
-  background-color: if($is-dark-theme, darken($primary-color, 15%), primary-color());
-  border: 1px solid if($is-dark-theme, darken($primary-color, 25%), darken(primary-color(), 5%));
-  color: if($is-dark-theme, $foreground-color, $background-color);
-  // color: $background-color;
+  background-color: if($is-dark, accent-color(50), accent-color(60));
+  color: if($is-dark, $foreground-color, $background-color);
 }
 
 app-work-experience {
@@ -198,13 +201,21 @@ app-work-experience {
 }
 
 .job-desc {
-  background-color: if($is-dark-theme, lighten(background-color(), 3%), darken(background-color(), 3%));
+  background-color: if(
+    $is-dark-theme,
+    lighten(background-color(), 3%),
+    darken(background-color(), 3%)
+  );
   padding: 0.3em 1em;
   margin: 0.8em 0;
 }
 
 .project {
-  background-color: if($is-dark, lighten(background-color(), 6%), darken(background-color(), 5%));
+  background-color: if(
+    $is-dark,
+    lighten(background-color(), 6%),
+    darken(background-color(), 5%)
+  );
   border-left: 2px solid rgba(accent-color(), 1);
   padding: 10px 1em 0.5em 1em;
   margin: 1em 0;
@@ -226,4 +237,8 @@ app-work-experience {
 .split4 {
   display: grid;
   grid-template-columns: [col] 1fr [col] 1fr [col] 1fr [col] auto;
+}
+
+mat-icon {
+  color: primary-color() !important;
 }

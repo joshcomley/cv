@@ -4,11 +4,11 @@
       <h2 class="work-experience-print-hack" *ngIf="showPrintHack">
         Work Experience
       </h2>
-      <ng-content *ngIf="short">
+      <ng-content *ngIf="short()">
         <div class="work-place short">
           <h3 class="place">{{ experience.place }}</h3>
           <span class="location"
-            ><i class="fa fa-map-marker location-icon" aria-hidden="true"></i
+            ><i class="fa fa-map-marker" aria-hidden="true"></i
             >{{ experience.location }}
           </span>
           <div class="title">
@@ -27,7 +27,7 @@
           </div>
         </div>
       </ng-content>
-      <ng-content *ngIf="!short">
+      <ng-content *ngIf="!short()">
         <div class="work-place split">
           <h3 class="place">{{ experience.place }}</h3>
           <span class="location"
@@ -49,7 +49,7 @@
           </div>
         </div>
       </ng-content>
-      <div class="job-desc" *ngIf="!short">
+      <div class="job-desc" *ngIf="!short()">
         <p *ngIf="experience.summary">{{ experience.summary }}</p>
         <div
           *ngIf="descriptionIsString"
@@ -62,7 +62,7 @@
       <div
         class="misc-skills"
         *ngIf="
-          short &&
+          short() &&
           (experience.skills?.length > 0 ||
             experience.businessSkills?.length > 0)
         "
@@ -78,7 +78,7 @@
       </div>
       <div
         class="misc-skills"
-        *ngIf="!short && experience.skills && experience.skills.length > 0"
+        *ngIf="!short() && experience.skills && experience.skills.length > 0"
       >
         <h4><mat-icon>keyboard</mat-icon>&nbsp;Tech stack</h4>
         <span *ngFor="let skill of experience.skills" class="skill-tag">{{
@@ -88,7 +88,7 @@
       <div
         class="misc-skills"
         *ngIf="
-          !short &&
+          !short() &&
           experience.businessSkills &&
           experience.businessSkills.length > 0
         "
@@ -100,7 +100,7 @@
           >{{ skill }}</span
         >
       </div>
-      <div class="job-ref job-desc" *ngIf="experience.reference && !short">
+      <div class="job-ref job-desc" *ngIf="experience.reference && !short()">
         <h4>Reference</h4>
         <p>
           {{ experience.reference.name }}
