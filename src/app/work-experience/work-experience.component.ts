@@ -1,11 +1,16 @@
-import { ComponentPortal, PortalInjector } from '@angular/cdk/portal';
+import { ComponentPortal, PortalInjector, CdkPortalOutlet } from '@angular/cdk/portal';
 import { Component, Injector, Input, OnInit } from '@angular/core';
 import { Experience } from "../shared";
+import { MatCard, MatCardContent } from '@angular/material/card';
+import { NgIf, NgFor } from '@angular/common';
+import { MatIcon } from '@angular/material/icon';
 
 @Component({
-  selector: 'app-work-experience',
-  templateUrl: './work-experience.component.html',
-  styleUrls: ['./work-experience.component.scss']
+    selector: 'app-work-experience',
+    templateUrl: './work-experience.component.html',
+    styleUrls: ['./work-experience.component.scss'],
+    standalone: true,
+    imports: [MatCard, MatCardContent, NgIf, MatIcon, CdkPortalOutlet, NgFor]
 })
 export class WorkExperienceComponent implements OnInit {
   @Input() public showPrintHack = false;

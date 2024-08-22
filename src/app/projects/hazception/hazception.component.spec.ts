@@ -8,8 +8,8 @@ describe('HazceptionComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ HazceptionComponent ]
-    })
+    imports: [HazceptionComponent]
+})
     .compileComponents();
   }));
 

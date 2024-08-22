@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { Highlight } from 'ngx-highlightjs';
 
 @Component({
-  selector: 'app-iql',
-  templateUrl: './iql.component.html',
-  styleUrls: ['./iql.component.scss']
+    selector: 'app-iql',
+    templateUrl: './iql.component.html',
+    styleUrls: ['./iql.component.scss'],
+    standalone: true,
+    imports: [Highlight]
 })
 export class IqlComponent implements OnInit {
 

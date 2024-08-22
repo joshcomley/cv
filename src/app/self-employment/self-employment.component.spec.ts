@@ -8,8 +8,8 @@ describe('SelfEmploymentComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ SelfEmploymentComponent ]
-    })
+    imports: [SelfEmploymentComponent]
+})
     .compileComponents();
   }));
 

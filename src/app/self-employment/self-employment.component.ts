@@ -1,10 +1,13 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Highlight } from 'ngx-highlightjs';
 
 @Component({
-  selector: 'app-self-employment',
-  templateUrl: './self-employment.component.html',
-  styleUrls: ['./self-employment.component.scss'],
-  encapsulation: ViewEncapsulation.None
+    selector: 'app-self-employment',
+    templateUrl: './self-employment.component.html',
+    styleUrls: ['./self-employment.component.scss'],
+    encapsulation: ViewEncapsulation.None,
+    standalone: true,
+    imports: [Highlight]
 })
 export class SelfEmploymentComponent implements OnInit {
   public languages = ["typescript"];
