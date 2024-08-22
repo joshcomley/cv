@@ -28,7 +28,7 @@ $accent-color: accent-color();
 $background-color: background-color();
 $foreground-color: foreground-color();
 
-$is-dark: (map.get($theme, color, theme-type) or light) == dark;
+// $is-dark: (map.get($theme, color, theme-type) or light) == dark;
 /* You can add global styles to this file, and also import other style files */
 html {
   font-family: sans-serif;
@@ -204,7 +204,7 @@ app-work-experience {
 }
 
 .project {
-  background-color: if($is-dark-theme, lighten(background-color(), 6%), darken(background-color(), 9%));
+  background-color: if($is-dark, lighten(background-color(), 6%), darken(background-color(), 5%));
   border-left: 2px solid rgba(accent-color(), 1);
   padding: 10px 1em 0.5em 1em;
   margin: 1em 0;

@@ -10,7 +10,7 @@ import { Highlight } from 'ngx-highlightjs';
     imports: [Highlight]
 })
 export class SelfEmploymentComponent implements OnInit {
-  public languages = ["typescript"];
+  public languages = "typescript";
 
 public docNet = `{{foreach:posts post}}
 Author: {{post.author}} {{image: source="post.author.photo" maxWidth="'1in'" maxHeight="'1in'" }}

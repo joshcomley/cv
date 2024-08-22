@@ -141,11 +141,12 @@ $dark-theme: mat.define-theme(
 }
 
 $theme: $dark-theme;
-$is-dark-theme: true;
+$is-dark-theme: false;
+$is-dark: true;
 @import "./utils";
 
 .light {
-  $is-dark-theme: false;
+  $is-dark: false;
   $theme: $light-theme;
   @include mat.all-component-colors($light-theme);
   @import "./utils";
