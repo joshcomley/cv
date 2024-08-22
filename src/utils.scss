@@ -1,3 +1,4 @@
+@use 'sass:map';
 @use '@angular/material' as mat;
 // @use "@fortawesome/fontawesome-free/css/fontawesome.css";
 // @use "@fortawesome/fontawesome-free/css/solid.css";
@@ -7,11 +8,11 @@
 @import "./md";
 
 @function primary-color() {
-  @return mat.m2-get-color-from-palette(map-get($palette, primary), 50);
+  @return mat.m2-get-color-from-palette(map-get($palette, primary), 70);
 }
 
 @function accent-color() {
-  @return mat.m2-get-color-from-palette(map-get($palette, secondary), 50);
+  @return mat.get-theme-color($theme, tertiary);
 }
 
 @function background-color() {
@@ -27,7 +28,7 @@ $accent-color: accent-color();
 $background-color: background-color();
 $foreground-color: foreground-color();
 
-// $is-dark: (map.get($theme, $_internals, theme-type) or light) == dark;
+$is-dark: (map.get($theme, color, theme-type) or light) == dark;
 /* You can add global styles to this file, and also import other style files */
 html {
   font-family: sans-serif;
@@ -112,11 +113,8 @@ $print-body-margin: 20px;
   // }
 }
 
-h1.name {
-}
-
 a {
-  color: accent-color();
+  color: mat.m2-get-color-from-palette(map-get($palette, secondary), 60);
   text-decoration: none;
 }
 
@@ -169,8 +167,9 @@ mat-icon {
   border-radius: 2px;
   display: inline-block;
   border: 1px solid darken($background-color, 3%);
-  background-color: darken($background-color, 1.5%);
-  color: $foreground-color;
+  background-color: mat.get-theme-color($theme, neutral, if($is-dark, 30, 90));
+  // background-color: darken($background-color, 1.5%);
+  // color: $foreground-color;
 }
 
 .business-skill-tag {

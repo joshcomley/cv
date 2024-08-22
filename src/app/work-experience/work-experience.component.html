@@ -1,50 +1,73 @@
 <div class="card-container">
-	<mat-card class="experience item">
-		<h2 class="work-experience-print-hack" *ngIf="showPrintHack">Work Experience</h2>
-		<div class="work-place">
-			<h3 class="place">{{experience.place}}</h3>
-			<span class="location"><i class="fa fa-map-marker location-icon"
-					aria-hidden="true"></i>{{experience.location}}
-			</span>
-		</div>
-		<div class="job-meta">
-			<div class="work-duration">
-				<mat-icon>access_time</mat-icon>{{experience.fromTo}}
-				<ng-container *ngIf="experience.durationInMonths != null">({{experience.durationInMonths}}
-					month{{experience.durationInMonths == 1 ? "" : "s"}})</ng-container>
-			</div>
-			<div class="title">
-				<mat-icon>work</mat-icon>{{experience.title}}
-			</div>
-		</div>
-		<div class="job-desc">
-			<p *ngIf="experience.summary">{{experience.summary}}</p>
-			<div *ngIf="descriptionIsString" [innerHTML]="experience.description">
-			</div>
-			<div *ngIf="!descriptionIsString && portal">
-				<ng-template [cdkPortalOutlet]="portal">
-				</ng-template>
-			</div>
-		</div>
-		<div class="misc-skills" *ngIf="experience.skills && experience.skills.length > 0">
-			<h4>
-				<mat-icon>keyboard</mat-icon>&nbsp;Tech stack
-			</h4>
-			<span *ngFor="let skill of experience.skills" class="skill-tag">{{skill}}</span>
-		</div>
-		<div class="misc-skills" *ngIf="experience.businessSkills && experience.businessSkills.length > 0">
-			<h4>
-				<mat-icon>business_center</mat-icon>&nbsp;Business skills
-			</h4>
-			<span *ngFor="let skill of experience.businessSkills" class="skill-tag business-skill-tag">{{skill}}</span>
-		</div>
-		<div class="job-ref job-desc" *ngIf="experience.reference">
-			<h4>Reference</h4>
-			<p>{{experience.reference.name}} <a *ngIf="experience.reference.phone"
-					href="tel:{{experience.reference.phone}}">{{experience.reference.phone}}</a></p>
-			<p *ngIf="experience.reference.address">
-				{{experience.reference.address}}
-			</p>
-		</div>
-	</mat-card>
+  <mat-card class="experience item" appearance="outlined">
+    <mat-card-content>
+      <h2 class="work-experience-print-hack" *ngIf="showPrintHack">
+        Work Experience
+      </h2>
+      <div class="work-place">
+        <h3 class="place">{{ experience.place }}</h3>
+        <span class="location"
+          ><i class="fa fa-map-marker location-icon" aria-hidden="true"></i
+          >{{ experience.location }}
+        </span>
+      </div>
+      <div class="job-meta">
+        <div class="work-duration">
+          <mat-icon>access_time</mat-icon>{{ experience.fromTo }}
+          <ng-container *ngIf="experience.durationInMonths != null"
+            >({{ experience.durationInMonths }} month{{
+              experience.durationInMonths == 1 ? "" : "s"
+            }})</ng-container
+          >
+        </div>
+        <div class="title"><mat-icon>work</mat-icon>{{ experience.title }}</div>
+      </div>
+      <div class="job-desc">
+        <p *ngIf="experience.summary">{{ experience.summary }}</p>
+        <div
+          *ngIf="descriptionIsString"
+          [innerHTML]="experience.description"
+        ></div>
+        <div *ngIf="!descriptionIsString && portal">
+          <ng-template [cdkPortalOutlet]="portal"> </ng-template>
+        </div>
+      </div>
+      <div
+        class="misc-skills"
+        *ngIf="experience.skills && experience.skills.length > 0"
+      >
+        <h4><mat-icon>keyboard</mat-icon>&nbsp;Tech stack</h4>
+        <span *ngFor="let skill of experience.skills" class="skill-tag">{{
+          skill
+        }}</span>
+      </div>
+      <div
+        class="misc-skills"
+        *ngIf="
+          experience.businessSkills && experience.businessSkills.length > 0
+        "
+      >
+        <h4><mat-icon>business_center</mat-icon>&nbsp;Business skills</h4>
+        <span
+          *ngFor="let skill of experience.businessSkills"
+          class="skill-tag business-skill-tag"
+          >{{ skill }}</span
+        >
+      </div>
+      <div class="job-ref job-desc" *ngIf="experience.reference">
+        <h4>Reference</h4>
+        <p>
+          {{ experience.reference.name }}
+          <a
+            *ngIf="experience.reference.phone"
+            href="tel:{{ experience.reference.phone }}"
+            >{{ experience.reference.phone }}</a
+          >
+        </p>
+        <p *ngIf="experience.reference.address">
+          {{ experience.reference.address }}
+        </p>
+      </div>
+    </mat-card-content>
+  </mat-card>
 </div>

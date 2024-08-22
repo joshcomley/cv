@@ -12,7 +12,7 @@ export class IqlComponent implements OnInit {
   ngOnInit() {
   }
 
-  public languages = ["typescript"];
+  public languages = "typescript";
   public code = `let todos = 
   await db.Todos
     .Where(todo => todo.Deadline < new Date() && todo.Name.includes("front end"))
