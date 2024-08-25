@@ -51,8 +51,19 @@ body {
   padding: 0 0.3em;
 }
 
+.section-title {
+  font-size: 2em;
+  margin-bottom: 0.4em;
+}
+
 $print-body-margin: 20px;
+.print-only {
+  display: none;
+}
 @media print {
+  .screen-only {
+    display: none;
+  }
   .save-as-pdf,
   #theme-toggle mat-slide-toggle,
   #detail-toggle,
@@ -76,7 +87,8 @@ $print-body-margin: 20px;
   .main-me {
     display: none;
   }
-  @page {
+  .print-only {
+    display: block !important;
   }
   .page-nav-space-holder {
     display: none;
@@ -98,22 +110,13 @@ $print-body-margin: 20px;
   .page-break {
     page-break-before: always;
   }
-  #experiences-section {
-    margin-top: 1em;
-    padding-top: 2.5em;
-  }
-  .section-title.work-experience {
-    display: none;
-  }
-  .work-experience-print-hack {
-    display: block !important;
-    position: absolute;
-    top: -3em;
-    left: 0;
-  }
-  // h2.work-experience {
-  //   page-break-after: avoid;
+  // #experiences-section {
+  //   margin-top: 1em;
+  //   padding-top: 2.5em;
   // }
+  .section-title {
+    margin: 0 !important;
+  }
 }
 
 a {
@@ -173,8 +176,6 @@ mat-icon {
   background-color: mat.get-theme-color($theme, neutral, if($is-dark, 30, 90));
   -webkit-print-color-adjust: exact !important;
   print-color-adjust: exact !important;
-  // background-color: darken($background-color, 1.5%);
-  // color: $foreground-color;
 }
 
 .business-skill-tag {
@@ -201,10 +202,12 @@ app-work-experience {
 }
 
 .job-desc {
+  -webkit-print-color-adjust: exact !important;
+  print-color-adjust: exact !important;
   background-color: if(
-    $is-dark-theme,
+    $is-dark,
     lighten(background-color(), 3%),
-    darken(background-color(), 3%)
+    rgba(lighten(accent-color(), 60%), 0.4)
   );
   padding: 0.3em 1em;
   margin: 0.8em 0;
@@ -234,11 +237,26 @@ app-work-experience {
   grid-template-columns: [col] 1fr [col] auto;
 }
 
-.split4 {
-  display: grid;
-  grid-template-columns: [col] 1fr [col] 1fr [col] 1fr [col] auto;
-}
-
 mat-icon {
   color: primary-color() !important;
+}
+
+.html-text {
+  white-space: pre;
+}
+
+.job-summary {
+  color: primary-color();
+}
+
+.accent {
+  color: accent-color();
+}
+
+.warning {
+  font-style: italic;
+}
+
+.section-sub-title {
+  font-style: italic;
 }

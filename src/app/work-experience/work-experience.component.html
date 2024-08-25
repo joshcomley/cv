@@ -1,10 +1,7 @@
 <div class="card-container">
   <mat-card class="experience item" appearance="outlined">
     <mat-card-content>
-      <h2 class="work-experience-print-hack" *ngIf="showPrintHack">
-        Work Experience
-      </h2>
-      <ng-content *ngIf="short()">
+      <ng-content *ngIf="short() && !isPrintSummary">
         <div class="work-place short">
           <h3 class="place">{{ experience.place }}</h3>
           <span class="location"
@@ -13,21 +10,19 @@
           </span>
           <div class="title">
             <mat-icon>work</mat-icon>
-			<span>
-				{{ experience.title }}
-			</span>
+            <span>
+              {{ experience.title }}
+            </span>
           </div>
           <div class="work-duration">
             <mat-icon>access_time</mat-icon>{{ experience.fromTo }}
             <ng-container *ngIf="experience.durationInMonths != null"
-              >({{ experience.durationInMonths }} month{{
-                experience.durationInMonths == 1 ? "" : "s"
-              }})</ng-container
+              >({{ getDuration(experience) }})</ng-container
             >
           </div>
         </div>
       </ng-content>
-      <ng-content *ngIf="!short()">
+      <ng-content *ngIf="!short() || isPrintSummary">
         <div class="work-place split">
           <h3 class="place">{{ experience.place }}</h3>
           <span class="location"
@@ -42,16 +37,24 @@
           <div class="work-duration">
             <mat-icon>access_time</mat-icon>{{ experience.fromTo }}
             <ng-container *ngIf="experience.durationInMonths != null"
-              >({{ experience.durationInMonths }} month{{
-                experience.durationInMonths == 1 ? "" : "s"
-              }})</ng-container
+              >({{ getDuration(experience) }})</ng-container
             >
           </div>
         </div>
       </ng-content>
+      <p
+        *ngIf="short()"
+        class="job-summary"
+        [innerHTML]="experience.summary"
+      ></p>
       <div class="job-desc" *ngIf="!short()">
-        <p *ngIf="experience.summary">{{ experience.summary }}</p>
+        <p
+          *ngIf="experience.summary"
+          class="job-summary"
+          [innerHTML]="experience.summary"
+        ></p>
         <div
+          class="job-desc-as-string"
           *ngIf="descriptionIsString"
           [innerHTML]="experience.description"
         ></div>

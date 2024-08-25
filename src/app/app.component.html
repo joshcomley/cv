@@ -2,9 +2,9 @@
   <header class="header">
     <div class="split">
       <h1 class="name">
-        <a href="mailto:{{ email }}"
+        <a href="mailto:{{ cv.email }}"
           ><i class="main-me fa fa-paper-plane" aria-hidden="true"></i></a
-        >{{ name }}
+        >{{ cv.name }}
       </h1>
       <div id="theme-toggle">
         <mat-slide-toggle (change)="switchTheme()"
@@ -15,18 +15,18 @@
     <ul class="list-inline">
       <li class="email">
         <i class="fa fa-envelope"></i
-        ><a href="mailto:{{ email }}">{{ email }}</a>
+        ><a href="mailto:{{ cv.email }}">{{ cv.email }}</a>
       </li>
       <li>
-        <i class="fa fa-phone"></i>&nbsp;<a href="{{ phoneNumber(phone) }}">{{
-          phone
+        <i class="fa fa-phone"></i>&nbsp;<a href="{{ phoneNumber(cv.phone) }}">{{
+          cv.phone
         }}</a>
       </li>
       <!-- <li><i class="fa fa-phone"></i> <a href="{{phoneNumber(whatsApp)}}">{{whatsApp}} (WhatsApp)</a></li> -->
-      <li class="website">
+      <!-- <li class="website">
         <i class="fa fa-globe"></i
         ><a href="#" target="_blank">{{ portfolioSite }}</a>
-      </li>
+      </li> -->
       <li class="save-as-pdf">
         <a href="CV-JoshComley.pdf" download="CV-JoshComley.pdf"
           ><i class="fa fa-file-pdf"></i>&nbsp;Download as PDF</a
@@ -45,9 +45,9 @@
                 <div class="title">
                   <p class="this-cv">This CV was built with Angular</p>
                   <p class="first-paragraph">
-                    I am a passionate, full-stack (C#, Angular, SQL Server,
-                    ASP.NET, mobile via NativeScript/Xamarin) technical
-                    architect based in Wandsworth, London, UK.
+                    I am a passionate, full-stack (C#, Angular, React, SQL
+                    Server, ASP.NET, DevOps) developer and technical architect
+                    based in Worcester, UK.
                   </p>
                   <p>
                     Experienced in agile, mentoring, training other developers,
@@ -58,13 +58,18 @@
                   <p>
                     Excellent communication skills, both written and verbal.
                   </p>
-                  <p>Really love coding.</p>
+                  <p class="accent">Really love coding!</p>
+                  <p>
+                    Hobbies include woodworking, photography, making terrible
+                    music in my home studio and 3D printing/design (using
+                    OpenSCAD, 3D design programming language!).
+                  </p>
                 </div>
                 <ul
-                  *ngIf="keySummaries && keySummaries.length"
+                  *ngIf="cv.keySummaries && cv.keySummaries.length"
                   class="service-list"
                 >
-                  <li *ngFor="let keySummary of keySummaries">
+                  <li *ngFor="let keySummary of cv.keySummaries">
                     <i class="fa fa-check" aria-hidden="true"></i>&nbsp;<span
                       class="key-summary-title"
                       >{{ keySummary.title }}</span
@@ -73,7 +78,7 @@
                   </li>
                 </ul>
               </div>
-              <app-socials [socials]="socials"></app-socials>
+              <app-socials [socials]="cv.socials"></app-socials>
               <!-- <h3>Key skills</h3>
             <app-key-skills [skills]="keySkills"></app-key-skills> -->
               <!-- <p><strong>I can help with the following:</strong></p>
@@ -91,17 +96,17 @@
         <div class="container">
           <ul id="page-nav" class="nav page-nav list-inline">
             <li>Jump to:</li>
-            <li *ngIf="experiences.length">
+            <li *ngIf="cv.experiences.length">
               <a class="scrollto" href="#experiences-section">Experience</a>
             </li>
-            <li *ngIf="educations.length">
+            <li *ngIf="cv.educations.length">
               <a class="scrollto" href="#eudcation-section">Education</a>
             </li>
             <!-- <li *ngIf="skills.length"><a class="scrollto" href="#skills-section">Skills</a></li> -->
-            <li *ngIf="testimonials.length">
+            <li *ngIf="cv.testimonials.length">
               <a class="scrollto" href="#testimonials-section">Testimonials</a>
             </li>
-            <li *ngIf="portfolioItems.length">
+            <li *ngIf="cv.portfolioItems.length">
               <a class="scrollto" href="#portfolio-section">Portfolio</a>
             </li>
             <li><a class="scrollto" href="#contact-section">Contact</a></li>
@@ -110,14 +115,38 @@
       </div>
     </div>
   </header>
-
-  <div class="wrapper container">
+  <div class="page-break"></div>
+  <div class="">
     <section
-      *ngIf="experiences.length"
-      id="experiences-section"
-      class="experiences-section section"
+      *ngIf="cv.experiences.length"
+      id="experiences-sectionx"
+      class="print-only"
     >
-      <h2 class="section-title work-experience">Work Experience</h2>
+      <div class="section-title overview">Quick summary of recent years</div>
+      <div class="section-sub-title overview">
+        Full, detailed work history follows this section
+      </div>
+      <div class="timeline">
+        <app-work-experience
+          *ngFor="let experience of cv.experiences.slice(0, 5); let i = index"
+          [showPrintHack]="i == 0"
+          showPrintText="Quick summary of recent years"
+          [isPrintSummary]="true"
+          [attr.id]="experience.id"
+          [experience]="experience"
+          [short]="true"
+        >
+        </app-work-experience>
+      </div>
+    </section>
+    <div class="page-break"></div>
+    <section
+      *ngIf="cv.experiences.length"
+      id="experiences-section"
+      class="section page-break-section"
+    >
+      <div class="section-title overview screen-only">Work experience</div>
+      <div class="section-title overview print-only">Full work history</div>
       <mat-button-toggle-group
         name="fontStyle"
         id="detail-toggle"
@@ -129,8 +158,8 @@
       </mat-button-toggle-group>
       <div class="timeline">
         <app-work-experience
-          *ngFor="let experience of experiences; let i = index"
-          [showPrintHack]="i == 0"
+          *ngFor="let experience of cv.experiences; let i = index"
+          [isPrintSummary]="true"
           [attr.id]="experience.id"
           [experience]="experience"
           [short]="short()"
@@ -138,29 +167,25 @@
         </app-work-experience>
       </div>
     </section>
-
+    <div class="page-break"></div>
+    <div class="section-title">Education</div>
     <mat-card
-      *ngIf="educations.length"
+      *ngIf="cv.educations.length"
       id="eudcation-section"
       class="education-section section"
       appearance="outlined"
     >
-      <mat-card-header>
-        <mat-card-title> Education </mat-card-title>
-      </mat-card-header>
       <mat-card-content>
-        <div class="row">
-          <app-education
-            *ngFor="let experience of educations"
-            [experience]="experience"
-          >
-          </app-education>
-        </div>
+        <app-education
+          *ngFor="let experience of cv.educations"
+          [experience]="experience"
+        >
+        </app-education>
       </mat-card-content>
     </mat-card>
 
     <section
-      *ngIf="false && skills.length"
+      *ngIf="false && cv.skills.length"
       id="skills-section"
       class="skills-section section text-center"
     >
@@ -170,7 +195,7 @@
         <div class="row">
           <app-skill
             *ngFor="
-              let skill of skills | importantSkills : true | orderByExperience
+              let skill of cv.skills | importantSkills : true | orderByExperience
             "
             [skill]="skill"
           >
@@ -180,7 +205,7 @@
       <div class="other-skills">
         <h3 class="subtitle">Other Skills</h3>
         <div class="misc-skills">
-          <div *ngFor="let skill of skills | importantSkills : false">
+          <div *ngFor="let skill of cv.skills | importantSkills : false">
             <span class="skill-tag">{{ skill.title }}</span>
           </div>
         </div>
@@ -188,7 +213,7 @@
     </section>
 
     <section
-      *ngIf="testimonials.length"
+      *ngIf="cv.testimonials.length"
       id="testimonials-section"
       class="testimonials-section section"
     >
@@ -209,7 +234,7 @@
         </ol>
         <div class="carousel-inner">
           <app-testimonial
-            *ngFor="let testimonial of testimonials"
+            *ngFor="let testimonial of cv.testimonials"
             [testimonial]="testimonial"
           >
           </app-testimonial>
@@ -218,7 +243,7 @@
     </section>
 
     <section
-      *ngIf="portfolioItems.length"
+      *ngIf="cv.portfolioItems.length"
       id="portfolio-section"
       class="portfolio-section section"
     >
@@ -229,14 +254,12 @@
         <li class="type" data-filter=".frontend">Front-end</li>
       </ul>
       <div class="items-wrapper isotope row">
-        <app-portfolio-item *ngFor="let item of portfolioItems" [item]="item">
+        <app-portfolio-item *ngFor="let item of cv.portfolioItems" [item]="item">
         </app-portfolio-item>
       </div>
     </section>
+    <div class="section-title">Get in touch</div>
     <mat-card appearance="outlined" class="section">
-      <mat-card-header>
-        <mat-card-title>Get in touch</mat-card-title>
-      </mat-card-header>
       <mat-card-content>
         <!-- <h2 class="section-title">Get in touch</h2> -->
         <div class="intro">
@@ -244,15 +267,14 @@
           <div class="dialog">
             <p>
               Drop me a line at
-              <a href="mailto:{{ email }}">{{ email }}</a> or call me at
-              <a href="tel:{{ phone }}">{{ phone }}</a>
+              <a href="mailto:{{ cv.email }}">{{ cv.email }}</a> or call me at
+              <a href="tel:{{ cv.phone }}">{{ cv.phone }}</a>
             </p>
-            <div [innerHTML]="current"></div>
-            <app-socials [socials]="socials"></app-socials>
+            <div [innerHTML]="cv.current"></div>
+            <app-socials [socials]="cv.socials"></app-socials>
           </div>
         </div>
       </mat-card-content>
     </mat-card>
-    <div class="page-break"></div>
   </div>
 </div>
