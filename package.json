@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
+    "deploy": "ng deploy --repo=https://github.com/joshcomley/cv.git --dir=dist/cv/browser --cname=cv.joshcomley.com",
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
@@ -37,6 +38,7 @@
     "@types/jasminewd2": "^2.0.13",
     "@types/luxon": "^3.4.2",
     "@types/node": "^22.5.0",
+    "angular-cli-ghpages": "2.0.1",
     "codelyzer": "^6.0.2",
     "gh-pages": "^6.1.1",
     "jasmine-core": "~5.2.0",
