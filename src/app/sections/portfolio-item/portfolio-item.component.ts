@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { PortfolioItem } from  "../shared";
+import { PortfolioItem } from  "../../shared";
 
 @Component({
     selector: 'app-portfolio-item',

@@ -1,6 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Skill } from "../shared";
 import { NgFor } from '@angular/common';
+import { Component, Input } from '@angular/core';
+import { Skill } from '@/app/shared';
 
 @Component({
     selector: 'app-key-skills',
@@ -9,12 +9,6 @@ import { NgFor } from '@angular/common';
     standalone: true,
     imports: [NgFor]
 })
-export class KeySkillsComponent implements OnInit {
+export class KeySkillsComponent {
   @Input() skills: Array<Skill>;
-
-  constructor() { }
-
-  ngOnInit() {
-  }
-
 }

@@ -4,7 +4,7 @@ import {
   CdkPortalOutlet,
 } from "@angular/cdk/portal";
 import { Component, Injector, Input, OnInit, input } from "@angular/core";
-import { Experience } from "../shared";
+import { Experience } from "../../shared";
 import { MatCard, MatCardContent } from "@angular/material/card";
 import { NgIf, NgFor, CommonModule } from "@angular/common";
 import { MatIcon } from "@angular/material/icon";

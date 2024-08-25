@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Testimonial } from  "../shared";
+import { Testimonial } from  "../../shared";
 
 @Component({
     selector: 'app-testimonial',

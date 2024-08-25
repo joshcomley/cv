@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Social } from  "../shared";
 import { NgFor } from '@angular/common';
+import { Social } from '@/app/shared';
 
 @Component({
     selector: 'app-socials',

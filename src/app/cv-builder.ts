@@ -1,9 +1,9 @@
-import { Cv } from "./cv";
-import { HazceptionComponent } from "./projects/hazception/hazception.component";
-import { IqlComponent } from "./projects/iql/iql.component";
-import { SafeSiteComponent } from "./projects/safesite/safesite.component";
-import { TypeSharpComponent } from "./projects/typesharp/typesharp.component";
-import { SelfEmploymentComponent } from "./self-employment/self-employment.component";
+import { Cv } from "@/app/cv";
+import { HazceptionComponent } from "@/app/projects/hazception/hazception.component";
+import { IqlComponent } from "@/app/projects/iql/iql.component";
+import { SafeSiteComponent } from "@/app/projects/safesite/safesite.component";
+import { TypeSharpComponent } from "@/app/projects/typesharp/typesharp.component";
+import { SelfEmploymentComponent } from "@/app/sections/self-employment/self-employment.component";
 import {
   KeySummary,
   Experience,
@@ -11,7 +11,7 @@ import {
   ExperienceReference,
   Skill,
   Social,
-} from "./shared";
+} from "@/app/shared";
 
 export class CvBuilder {
   public static BuildMyCv(): Cv {

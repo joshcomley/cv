@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Skill } from "../shared";
+import { Skill } from '@/app/shared';
 
 @Component({
     selector: 'app-skill',
@@ -7,13 +7,8 @@ import { Skill } from "../shared";
     styleUrls: ['./skill.component.scss'],
     standalone: true
 })
-export class SkillComponent implements OnInit {
+export class SkillComponent {
   @Input() skill: Skill;
-
-  constructor() { }
-
-  ngOnInit() {
-  }
 
   resolveScore(): number {
     let base = 100.0 / 36.0;

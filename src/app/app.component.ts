@@ -15,13 +15,13 @@ import { MatSlideToggle } from "@angular/material/slide-toggle";
 import { ActivatedRoute } from "@angular/router";
 import { Cv } from "./cv";
 import { CvBuilder } from "./cv-builder";
-import { EducationComponent } from "./education/education.component";
+import { EducationComponent } from "./sections/education/education.component";
 import { ImportantSkillsPipe, OrderByExperiencePipe } from "./pipes";
-import { PortfolioItemComponent } from "./portfolio-item/portfolio-item.component";
-import { SkillComponent } from "./skill/skill.component";
-import { SocialsComponent } from "./socials/socials.component";
-import { TestimonialComponent } from "./testimonial/testimonial.component";
-import { WorkExperienceComponent } from "./work-experience/work-experience.component";
+import { PortfolioItemComponent } from "./sections/portfolio-item/portfolio-item.component";
+import { TestimonialComponent } from "./sections/testimonial/testimonial.component";
+import { WorkExperienceComponent } from "./sections/work-experience/work-experience.component";
+import { SocialsComponent } from "./sections/socials/socials.component";
+import { SkillComponent } from "./shared/components/skill/skill.component";
 
 @Component({
   selector: "app-root",
