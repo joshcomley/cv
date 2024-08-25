@@ -14,12 +14,12 @@
     </div>
     <ul class="list-inline responsive">
       <li class="email with-icon">
-        <i class="fa fa-envelope"></i
-        ><a href="mailto:{{ cv.email }}">{{ cv.email }}</a>
+        <a href="mailto:{{ cv.email }}"><i class="fa fa-envelope"></i
+          >{{ cv.email }}</a>
       </li>
       <li class="with-icon">
-        <i class="fa fa-phone"></i
-        ><a href="{{ phoneNumber(cv.phone) }}">{{ cv.phone }}</a>
+        <a href="{{ phoneNumber(cv.phone) }}"><i class="fa fa-phone"></i
+          >{{ cv.phone }}</a>
       </li>
       <!-- <li><i class="fa fa-phone"></i> <a href="{{phoneNumber(whatsApp)}}">{{whatsApp}} (WhatsApp)</a></li> -->
       <!-- <li class="website">
@@ -28,7 +28,7 @@
       </li> -->
       <li class="with-icon save-as-pdf">
         <a href="CV-JoshComley.pdf" download="CV-JoshComley.pdf"
-          ><i class="fa fa-file-pdf"></i>&nbsp;Download as PDF</a
+          ><i class="fa fa-file-pdf"></i>Download as PDF</a
         >
       </li>
     </ul>

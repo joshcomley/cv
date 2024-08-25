@@ -233,9 +233,9 @@ app-work-experience {
 .list-inline {
   padding-left: 0;
   li {
-    display: inline;
+    display: inline-block;
     margin-right: 1em;
-    &.with-icon {
+    &.with-icon a {
       display: grid;
       grid-template-columns: 30px auto;
     }
@@ -265,6 +265,7 @@ app-work-experience {
   .list-inline.responsive {
     display: block;
     li {
+      display: block;
       margin-bottom: 0.5em;
     }
   }
