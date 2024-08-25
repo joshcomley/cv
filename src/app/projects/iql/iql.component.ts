@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { Highlight } from 'ngx-highlightjs';
 
 @Component({
-  selector: 'app-iql',
-  templateUrl: './iql.component.html',
-  styleUrls: ['./iql.component.scss']
+    selector: 'app-iql',
+    templateUrl: './iql.component.html',
+    styleUrls: ['./iql.component.scss'],
+    standalone: true,
+    imports: [Highlight]
 })
 export class IqlComponent implements OnInit {
 
@@ -12,7 +15,7 @@ export class IqlComponent implements OnInit {
   ngOnInit() {
   }
 
-  public languages = ["typescript"];
+  public languages = "typescript";
   public code = `let todos = 
   await db.Todos
     .Where(todo => todo.Deadline < new Date() && todo.Name.includes("front end"))

@@ -3,7 +3,8 @@ import { Skill } from './shared';
 
 @Pipe({
     name: 'importantSkills',
-    pure: false
+    pure: false,
+    standalone: true
 })
 @Injectable()
 export class ImportantSkillsPipe implements PipeTransform {
@@ -14,7 +15,8 @@ export class ImportantSkillsPipe implements PipeTransform {
 }
 
 @Pipe({
-    name: "orderByExperience"
+    name: "orderByExperience",
+    standalone: true
 })
 export class OrderByExperiencePipe {
     transform(array: Array<Skill>, args: string = null): Array<Skill> {

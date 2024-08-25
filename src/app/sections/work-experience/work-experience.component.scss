@@ -1,0 +1,65 @@
+.skill-tag {
+  margin-right: 5px;
+  margin-top: 5px;
+}
+
+.job-meta {
+  > div {
+    display: flex;
+    align-items: center;
+    margin-top: 3px;
+    margin-bottom: 3px;
+  }
+}
+
+.place {
+  display: inline;
+  margin-right: 1em;
+}
+
+.work-place {
+  margin-bottom: 1em;
+  &.short {
+    margin-bottom: 0em;
+    display: inline-flex;
+    @media (max-width: 800px) {
+      display: inline-grid;
+      grid-template-columns: auto auto;
+      grid-template-rows: auto auto;
+    }
+    gap: 20px;
+    align-items: center;
+    > * {
+      display: inline-grid;
+      grid-template-columns: auto auto;
+      align-items: center;
+      justify-content: flex-start;
+    }
+  }
+  .place {
+    margin: 0;
+  }
+}
+
+.work-duration {
+  align-items: center;
+}
+
+.job-ref {
+  h4 {
+    margin-top: 1em;
+  }
+}
+
+.job-desc-as-string {
+  // padding: 1em 0;
+}
+
+.job-summary {
+  font-weight: bold;
+  margin-bottom: 0;
+}
+
+.show-print-hack {
+  // margin-top: 3em;
+}

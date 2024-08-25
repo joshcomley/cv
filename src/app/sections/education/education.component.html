@@ -1,0 +1,10 @@
+<div class="card-container">
+  <div class="item-inner">
+    <h3 class="degree">{{ experience.title }}</h3>
+    <div class="education-body">
+      {{ experience.place }}
+    </div>
+    <div class="time">{{ experience.fromTo }}</div>
+    <div class="desc" [innerHTML]="experience.description"></div>
+  </div>
+</div>

@@ -1,0 +1,122 @@
+<div class="card-container">
+  <mat-card class="experience item" appearance="outlined">
+    <mat-card-content>
+      <ng-content *ngIf="short() && !isPrintSummary">
+        <div class="work-place short">
+          <h3 class="place">{{ experience.place }}</h3>
+          <span class="location"
+            ><i class="fa fa-map-marker" aria-hidden="true"></i
+            >{{ experience.location }}
+          </span>
+          <div class="title">
+            <mat-icon>work</mat-icon>
+            <span>
+              {{ experience.title }}
+            </span>
+          </div>
+          <div class="work-duration">
+            <mat-icon>access_time</mat-icon>{{ experience.fromTo }}
+            <ng-container *ngIf="experience.durationInMonths != null"
+              >({{ getDuration(experience) }})</ng-container
+            >
+          </div>
+        </div>
+      </ng-content>
+      <ng-content *ngIf="!short() || isPrintSummary">
+        <div class="work-place split">
+          <h3 class="place">{{ experience.place }}</h3>
+          <span class="location"
+            ><i class="fa fa-map-marker location-icon" aria-hidden="true"></i
+            >{{ experience.location }}
+          </span>
+        </div>
+        <div class="job-meta split">
+          <div class="title">
+            <mat-icon>work</mat-icon>{{ experience.title }}
+          </div>
+          <div class="work-duration">
+            <mat-icon>access_time</mat-icon>{{ experience.fromTo }}
+            <ng-container *ngIf="experience.durationInMonths != null"
+              >({{ getDuration(experience) }})</ng-container
+            >
+          </div>
+        </div>
+      </ng-content>
+      <p
+        *ngIf="short()"
+        class="job-summary"
+        [innerHTML]="experience.summary"
+      ></p>
+      <div class="job-desc" *ngIf="!short()">
+        <p
+          *ngIf="experience.summary"
+          class="job-summary"
+          [innerHTML]="experience.summary"
+        ></p>
+        <div
+          class="job-desc-as-string"
+          *ngIf="descriptionIsString"
+          [innerHTML]="experience.description"
+        ></div>
+        <div *ngIf="!descriptionIsString && portal">
+          <ng-template [cdkPortalOutlet]="portal"> </ng-template>
+        </div>
+      </div>
+      <div
+        class="misc-skills"
+        *ngIf="
+          short() &&
+          (experience.skills?.length > 0 ||
+            experience.businessSkills?.length > 0)
+        "
+      >
+        <span *ngFor="let skill of experience.skills" class="skill-tag">{{
+          skill
+        }}</span>
+        <span
+          *ngFor="let skill of experience.businessSkills"
+          class="skill-tag business-skill-tag"
+          >{{ skill }}</span
+        >
+      </div>
+      <div
+        class="misc-skills"
+        *ngIf="!short() && experience.skills && experience.skills.length > 0"
+      >
+        <h4><mat-icon>keyboard</mat-icon>&nbsp;Tech stack</h4>
+        <span *ngFor="let skill of experience.skills" class="skill-tag">{{
+          skill
+        }}</span>
+      </div>
+      <div
+        class="misc-skills"
+        *ngIf="
+          !short() &&
+          experience.businessSkills &&
+          experience.businessSkills.length > 0
+        "
+      >
+        <h4><mat-icon>business_center</mat-icon>&nbsp;Business skills</h4>
+        <span
+          *ngFor="let skill of experience.businessSkills"
+          class="skill-tag business-skill-tag"
+          >{{ skill }}</span
+        >
+      </div>
+      <div class="job-ref job-desc" *ngIf="experience.reference && !short()">
+        <h4>Reference</h4>
+        <p>
+          {{ experience.reference.name }}
+          <a
+            *ngIf="experience.reference.phone"
+            href="tel:{{ experience.reference.phone }}"
+            >{{ experience.reference.phone }}</a
+          >
+        </p>
+        <p *ngIf="experience.reference.address">
+          {{ experience.reference.address }}
+        </p>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

@@ -1,32 +1,38 @@
-@import "~highlight.js/styles/a11y-dark.css";
-@import "~@fortawesome/fontawesome-free/css/fontawesome.css";
-@import "~@fortawesome/fontawesome-free/css/solid.css";
-@import "~@fortawesome/fontawesome-free/css/regular.css";
-@import "~@fortawesome/fontawesome-free/css/brands.css";
+@use "sass:map";
+@use "@angular/material" as mat;
+// @use "@fortawesome/fontawesome-free/css/fontawesome.css";
+// @use "@fortawesome/fontawesome-free/css/solid.css";
+// @use "@fortawesome/fontawesome-free/css/regular.css";
+// @use "@fortawesome/fontawesome-free/css/brands.css";
+// @use "highlight.js/styles/a11y-dark.css";
 @import "./md";
 
 @function primary-color() {
-  @return mat-color(map-get($theme, primary));
+  @return mat.m2-get-color-from-palette(map-get($palette, primary), 70);
 }
 
-@function accent-color() {
-  @return mat-color(map-get($theme, accent));
+@function accent-color($hue: null) {
+  @return if(
+    $hue == null,
+    mat.get-theme-color($theme, tertiary),
+    mat.get-theme-color($theme, tertiary, $hue)
+  );
 }
 
 @function background-color() {
-  @return mat-color(map-get($theme, background), background);
+  @return mat.get-theme-color($theme, background);
 }
 
 @function foreground-color() {
-  @return mat-color(map-get($theme, foreground), base);
+  @return mat.m2-get-color-from-palette(map-get($palette, foreground), 50);
 }
 
 $primary-color: primary-color();
 $accent-color: accent-color();
 $background-color: background-color();
 $foreground-color: foreground-color();
-$is-dark-theme: map-get($theme, is-dark);
 
+// $is-dark: (map.get($theme, color, theme-type) or light) == dark;
 /* You can add global styles to this file, and also import other style files */
 html {
   font-family: sans-serif;
@@ -35,7 +41,8 @@ html {
 body {
   max-width: 1024px;
   margin: 0 auto;
-  background-color: background-color();
+  // @include mat.core-theme($theme);
+  // background-color: background-color();
 }
 .work-experience-print-hack {
   display: none;
@@ -44,20 +51,30 @@ body {
   padding: 0 0.3em;
 }
 
+.section-title {
+  font-size: 2em;
+  margin-bottom: 0.4em;
+}
+
 $print-body-margin: 20px;
+.print-only {
+  display: none;
+}
 @media print {
-  .this-cv {
+  .screen-only {
     display: none;
+  }
+  .save-as-pdf,
+  #theme-toggle mat-slide-toggle,
+  #detail-toggle,
+  .this-cv {
+    display: none !important;
   }
   .first-paragraph {
     margin-top: 0;
   }
   .cv-body {
     padding: 0;
-  }
-  .save-as-pdf,
-  #theme-toggle mat-slide-toggle {
-    display: none !important;
   }
   body {
     margin-left: $print-body-margin;
@@ -70,7 +87,8 @@ $print-body-margin: 20px;
   .main-me {
     display: none;
   }
-  @page {
+  .print-only {
+    display: block !important;
   }
   .page-nav-space-holder {
     display: none;
@@ -92,29 +110,17 @@ $print-body-margin: 20px;
   .page-break {
     page-break-before: always;
   }
-  #experiences-section {
-    margin-top: 1em;
-    padding-top: 2.5em;
-  }
-  .section-title.work-experience {
-    display: none;
-  }
-  .work-experience-print-hack {
-    display: block !important;
-    position: absolute;
-    top: -3em;
-    left: 0;
-  }
-  // h2.work-experience {
-  //   page-break-after: avoid;
+  // #experiences-section {
+  //   margin-top: 1em;
+  //   padding-top: 2.5em;
   // }
-}
-
-h1.name {
+  .section-title {
+    margin: 0 !important;
+  }
 }
 
 a {
-  color: accent-color();
+  color: mat.m2-get-color-from-palette(map-get($palette, secondary), 60);
   text-decoration: none;
 }
 
@@ -154,6 +160,7 @@ mat-icon {
 .misc-skills {
   margin: 1em 0;
 }
+
 .misc-skills h4 {
   color: $foreground-color;
   margin-bottom: 0;
@@ -166,15 +173,14 @@ mat-icon {
   border-radius: 2px;
   display: inline-block;
   border: 1px solid darken($background-color, 3%);
-  background-color: darken($background-color, 1.5%);
-  color: $foreground-color;
+  background-color: mat.get-theme-color($theme, neutral, if($is-dark, 30, 90));
+  -webkit-print-color-adjust: exact !important;
+  print-color-adjust: exact !important;
 }
 
 .business-skill-tag {
-  background-color: if($is-dark-theme, darken($primary-color, 15%), primary-color());
-  border: 1px solid if($is-dark-theme, darken($primary-color, 25%), darken(primary-color(), 5%));
-  color: if($is-dark-theme, $foreground-color, $background-color);
-  // color: $background-color;
+  background-color: if($is-dark, accent-color(50), accent-color(60));
+  color: if($is-dark, $foreground-color, $background-color);
 }
 
 app-work-experience {
@@ -196,13 +202,23 @@ app-work-experience {
 }
 
 .job-desc {
-  background-color: if($is-dark-theme, lighten(background-color(), 3%), darken(background-color(), 3%));
+  -webkit-print-color-adjust: exact !important;
+  print-color-adjust: exact !important;
+  background-color: if(
+    $is-dark,
+    lighten(background-color(), 3%),
+    rgba(lighten(accent-color(), 60%), 0.4)
+  );
   padding: 0.3em 1em;
   margin: 0.8em 0;
 }
 
 .project {
-  background-color: if($is-dark-theme, lighten(background-color(), 6%), darken(background-color(), 9%));
+  background-color: if(
+    $is-dark,
+    lighten(background-color(), 6%),
+    darken(background-color(), 5%)
+  );
   border-left: 2px solid rgba(accent-color(), 1);
   padding: 10px 1em 0.5em 1em;
   margin: 1em 0;
@@ -219,4 +235,28 @@ app-work-experience {
 .split {
   display: grid;
   grid-template-columns: [col] 1fr [col] auto;
+}
+
+mat-icon {
+  color: primary-color() !important;
+}
+
+.html-text {
+  white-space: pre;
+}
+
+.job-summary {
+  color: primary-color();
+}
+
+.accent {
+  color: accent-color();
+}
+
+.warning {
+  font-style: italic;
+}
+
+.section-sub-title {
+  font-style: italic;
 }
