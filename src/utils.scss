@@ -130,13 +130,6 @@ mat-icon {
   margin-right: 5px;
 }
 
-.list-inline {
-  padding-left: 0;
-  li {
-    margin-right: 1em;
-  }
-}
-
 .social,
 .service-list,
 #contact-section,
@@ -150,11 +143,6 @@ mat-icon {
 }
 .social {
   padding-left: 0;
-}
-.list-inline {
-  li {
-    display: inline;
-  }
 }
 
 .misc-skills {
@@ -242,15 +230,48 @@ app-work-experience {
   @include split();
 }
 
-@media (min-width: 800px) {
+.list-inline {
+  padding-left: 0;
+  li {
+    display: inline;
+    margin-right: 1em;
+    &.with-icon {
+      display: grid;
+      grid-template-columns: 30px auto;
+    }
+  }
+  a {
+    white-space: pre;
+  }
+}
+
+.list-inline.responsive {
+  display: flex;
+}
+
+@media (width >= 600px) {
+  .list-inline.responsive {
+    li {
+      margin-right: 1em;
+    }
+  }
+
   .split-large {
     @include split();
-  }    
+  }
 }
-@media (max-width: 800px) {
+
+@media (width < 600px) {
+  .list-inline.responsive {
+    display: block;
+    li {
+      margin-bottom: 0.5em;
+    }
+  }
+
   .split-large > *:first-child {
     margin-bottom: 1em !important;
-  }    
+  }
 }
 
 mat-icon {

@@ -12,22 +12,21 @@
         >
       </div>
     </div>
-    <ul class="list-inline">
-      <li class="email">
+    <ul class="list-inline responsive">
+      <li class="email with-icon">
         <i class="fa fa-envelope"></i
         ><a href="mailto:{{ cv.email }}">{{ cv.email }}</a>
       </li>
-      <li>
-        <i class="fa fa-phone"></i>&nbsp;<a href="{{ phoneNumber(cv.phone) }}">{{
-          cv.phone
-        }}</a>
+      <li class="with-icon">
+        <i class="fa fa-phone"></i
+        ><a href="{{ phoneNumber(cv.phone) }}">{{ cv.phone }}</a>
       </li>
       <!-- <li><i class="fa fa-phone"></i> <a href="{{phoneNumber(whatsApp)}}">{{whatsApp}} (WhatsApp)</a></li> -->
       <!-- <li class="website">
         <i class="fa fa-globe"></i
         ><a href="#" target="_blank">{{ portfolioSite }}</a>
       </li> -->
-      <li class="save-as-pdf">
+      <li class="with-icon save-as-pdf">
         <a href="CV-JoshComley.pdf" download="CV-JoshComley.pdf"
           ><i class="fa fa-file-pdf"></i>&nbsp;Download as PDF</a
         >
@@ -195,7 +194,9 @@
         <div class="row">
           <app-skill
             *ngFor="
-              let skill of cv.skills | importantSkills : true | orderByExperience
+              let skill of cv.skills
+                | importantSkills : true
+                | orderByExperience
             "
             [skill]="skill"
           >
@@ -254,7 +255,10 @@
         <li class="type" data-filter=".frontend">Front-end</li>
       </ul>
       <div class="items-wrapper isotope row">
-        <app-portfolio-item *ngFor="let item of cv.portfolioItems" [item]="item">
+        <app-portfolio-item
+          *ngFor="let item of cv.portfolioItems"
+          [item]="item"
+        >
         </app-portfolio-item>
       </div>
     </section>
