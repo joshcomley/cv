@@ -58,7 +58,7 @@ body {
 
 $print-body-margin: 20px;
 .print-only {
-  display: none;
+  display: none !important;
 }
 @media print {
   .screen-only {
